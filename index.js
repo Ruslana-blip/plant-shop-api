@@ -2,10 +2,6 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-	console.log(`Server running at port ${PORT}`);
-});
-
 app.use(express.json());
 
 const plants = {
