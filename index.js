@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000;
 app.use(cors()); // Додаємо middleware для CORS
 app.use(express.json());
 
-const plants = [
+const plants = {
 	Orchidaceae: {
 		0: {
 			name: 'Дендробіум',
@@ -114,7 +114,7 @@ const plants = [
 			watering: 'помірний',
 		},
 	},
-];
+};
 
 app.get('/', (req, res) => {
 	res.send('Welcome to the Plant API! Use /plants to see the list of plants.');
