@@ -1,349 +1,12 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+	console.log(`Server running at port ${PORT}`);
+});
 
 app.use(express.json());
-
-// Категорії рослин
-// const plants = {
-//  'Folia decorativa': [
-//    {
-//      id: 1,
-//      name: 'Philodendron',
-//      name_uk: 'Філодендрон',
-//      name_lat: 'Philodendron',
-//      price: 150,
-//    },
-//    {
-//      id: 2,
-//      name: 'Monstera',
-//      name_uk: 'Монстера',
-//      name_lat: 'Monstera deliciosa',
-//      price: 200,
-//    },
-//    {
-//      id: 3,
-//      name: 'Snake Plant',
-//      name_uk: 'Зміїне рослина',
-//      name_lat: 'Sansevieria trifasciata',
-//      price: 100,
-//    },
-//    {
-//      id: 4,
-//      name: 'Pothos',
-//      name_uk: 'Потос',
-//      name_lat: 'Epipremnum aureum',
-//      price: 120,
-//    },
-//    {
-//      id: 5,
-//      name: 'Fiddle Leaf Fig',
-//      name_uk: 'Фігове дерево',
-//      name_lat: 'Ficus lyrata',
-//      price: 250,
-//    },
-//    {
-//      id: 6,
-//      name: 'Rubber Plant',
-//      name_uk: 'Рослина-каучук',
-//      name_lat: 'Ficus elastica',
-//      price: 180,
-//    },
-//    {
-//      id: 7,
-//      name: 'ZZ Plant',
-//      name_uk: 'ZZ-рослина',
-//      name_lat: 'Zamioculcas zamiifolia',
-//      price: 90,
-//    },
-//    {
-//      id: 8,
-//      name: 'Peace Lily',
-//      name_uk: 'Лілія миру',
-//      name_lat: 'Spathiphyllum',
-//      price: 110,
-//    },
-//    {
-//      id: 9,
-//      name: 'Chinese Evergreen',
-//      name_uk: 'Китайське вічнозелене',
-//      name_lat: 'Aglaonema',
-//      price: 130,
-//    },
-//    {
-//      id: 10,
-//      name: 'Spider Plant',
-//      name_uk: 'Павук-рослина',
-//      name_lat: 'Chlorophytum comosum',
-//      price: 70,
-//    },
-//  ],
-//  'Flora florens': [
-//    { id: 11, name: 'Rose', name_uk: 'Роза', name_lat: 'Rosa', price: 100 },
-//    {
-//      id: 12,
-//      name: 'Lavender',
-//      name_uk: 'Лаванда',
-//      name_lat: 'Lavandula',
-//      price: 80,
-//    },
-//    {
-//      id: 13,
-//      name: 'Tulip',
-//      name_uk: 'Тюльпан',
-//      name_lat: 'Tulipa',
-//      price: 90,
-//    },
-//    {
-//      id: 14,
-//      name: 'Sunflower',
-//      name_uk: 'Соняшник',
-//      name_lat: 'Helianthus annuus',
-//      price: 75,
-//    },
-//    {
-//      id: 15,
-//      name: 'Daisy',
-//      name_uk: 'Ромашка',
-//      name_lat: 'Bellis perennis',
-//      price: 50,
-//    },
-//    {
-//      id: 16,
-//      name: 'Peony',
-//      name_uk: 'Півонія',
-//      name_lat: 'Paeonia',
-//      price: 120,
-//    },
-//    {
-//      id: 17,
-//      name: 'Orchid',
-//      name_uk: 'Орхідея',
-//      name_lat: 'Orchidaceae',
-//      price: 200,
-//    },
-//    {
-//      id: 18,
-//      name: 'Chrysanthemum',
-//      name_uk: 'Хризантема',
-//      name_lat: 'Chrysanthemum',
-//      price: 65,
-//    },
-//    {
-//      id: 19,
-//      name: 'Hydrangea',
-//      name_uk: 'Гортензія',
-//      name_lat: 'Hydrangea',
-//      price: 140,
-//    },
-//    {
-//      id: 20,
-//      name: 'Marigold',
-//      name_uk: 'Нагідки',
-//      name_lat: 'Tagetes',
-//      price: 40,
-//    },
-//  ],
-//  Succulentiae: [
-//    {
-//      id: 21,
-//      name: 'Aloe Vera',
-//      name_uk: 'Алоє Вера',
-//      name_lat: 'Aloe vera',
-//      price: 120,
-//    },
-//    {
-//      id: 22,
-//      name: 'Cactus',
-//      name_uk: 'Кактус',
-//      name_lat: 'Cactaceae',
-//      price: 60,
-//    },
-//    {
-//      id: 23,
-//      name: 'Jade Plant',
-//      name_uk: 'Дерево щастя',
-//      name_lat: 'Crassula ovata',
-//      price: 150,
-//    },
-//    {
-//      id: 24,
-//      name: 'Echeveria',
-//      name_uk: 'Ехеверія',
-//      name_lat: 'Echeveria',
-//      price: 80,
-//    },
-//    { id: 25, name: 'Sedum', name_uk: 'Седум', name_lat: 'Sedum', price: 45 },
-//    {
-//      id: 26,
-//      name: 'Haworthia',
-//      name_uk: 'Гавортія',
-//      name_lat: 'Haworthia',
-//      price: 70,
-//    },
-//    { id: 27, name: 'Agave', name_uk: 'Агаве', name_lat: 'Agave', price: 100 },
-//    {
-//      id: 28,
-//      name: 'Sempervivum',
-//      name_uk: 'Семперівум',
-//      name_lat: 'Sempervivum',
-//      price: 55,
-//    },
-//    {
-//      id: 29,
-//      name: 'Lithops',
-//      name_uk: 'Літопс',
-//      name_lat: 'Lithops',
-//      price: 130,
-//    },
-//    {
-//      id: 30,
-//      name: 'Crassula',
-//      name_uk: 'Красула',
-//      name_lat: 'Crassula',
-//      price: 90,
-//    },
-//  ],
-//  Pteridophyta: [
-//    {
-//      id: 31,
-//      name: 'Fern',
-//      name_uk: 'Папороть',
-//      name_lat: 'Pteridophyta',
-//      price: 90,
-//    },
-//    {
-//      id: 32,
-//      name: 'Boston Fern',
-//      name_uk: 'Бостонський папороть',
-//      name_lat: 'Nephrolepis exaltata',
-//      price: 110,
-//    },
-//    {
-//      id: 33,
-//      name: 'Asparagus Fern',
-//      name_uk: 'Спаржевий папороть',
-//      name_lat: 'Asparagus setaceus',
-//      price: 95,
-//    },
-//    {
-//      id: 34,
-//      name: 'Staghorn Fern',
-//      name_uk: 'Оленьовий папороть',
-//      name_lat: 'Platycerium',
-//      price: 140,
-//    },
-//    {
-//      id: 35,
-//      name: 'Maidenhair Fern',
-//      name_uk: 'Волосся дівчини',
-//      name_lat: 'Adiantum',
-//      price: 120,
-//    },
-//  ],
-//  'Plantae fructiferae': [
-//    {
-//      id: 36,
-//      name: 'Apple Tree',
-//      name_uk: 'Яблуня',
-//      name_lat: 'Malus domestica',
-//      price: 250,
-//    },
-//    {
-//      id: 37,
-//      name: 'Pear Tree',
-//      name_uk: 'Груша',
-//      name_lat: 'Pyrus',
-//      price: 220,
-//    },
-//    {
-//      id: 38,
-//      name: 'Cherry Tree',
-//      name_uk: 'Вишня',
-//      name_lat: 'Prunus avium',
-//      price: 300,
-//    },
-//    {
-//      id: 39,
-//      name: 'Peach Tree',
-//      name_uk: 'Персик',
-//      name_lat: 'Prunus persica',
-//      price: 280,
-//    },
-//    {
-//      id: 40,
-//      name: 'Plum Tree',
-//      name_uk: 'Слива',
-//      name_lat: 'Prunus domestica',
-//      price: 240,
-//    },
-//    {
-//      id: 41,
-//      name: 'Apricot Tree',
-//      name_uk: 'Абрикос',
-//      name_lat: 'Prunus armeniaca',
-//      price: 260,
-//    },
-//    {
-//      id: 42,
-//      name: 'Fig Tree',
-//      name_uk: 'Інжир',
-//      name_lat: 'Ficus carica',
-//      price: 270,
-//    },
-//    {
-//      id: 43,
-//      name: 'Lemon Tree',
-//      name_uk: 'Лимон',
-//      name_lat: 'Citrus limon',
-//      price: 320,
-//    },
-//    {
-//      id: 44,
-//      name: 'Orange Tree',
-//      name_uk: 'Апельсин',
-//      name_lat: 'Citrus sinensis',
-//      price: 310,
-//    },
-//    {
-//      id: 45,
-//      name: 'Grapefruit Tree',
-//      name_uk: 'Грейпфрут',
-//      name_lat: 'Citrus × paradisi',
-//      price: 340,
-//    },
-//  ],
-//  Cacti: [
-//    {
-//      id: 46,
-//      name: 'Saguaro Cactus',
-//      name_uk: 'Сагуаро',
-//      name_lat: 'Carnegiea gigantea',
-//      price: 150,
-//    },
-//    {
-//      id: 47,
-//      name: 'Barrel Cactus',
-//      name_uk: 'Бочковий кактус',
-//      name_lat: 'Ferocactus',
-//      price: 130,
-//    },
-//    {
-//      id: 48,
-//      name: 'Christmas Cactus',
-//      name_uk: 'Різдвяний кактус',
-//      name_lat: 'Schlumbergera',
-//      price: 140,
-//    },
-//    {
-//      id: 49,
-//      name: 'Pincushion Cactus',
-//      name_uk: 'Подушковий кактус',
-//      name_lat: 'Mammillaria',
-//      price: 120,
-//    },
-//  ],
-// };
 
 const plants = {
 	Orchidaceae: {
@@ -463,9 +126,29 @@ app.get('/plants', (req, res) => {
 	res.json(plants);
 });
 
-// Обробник для favicon.ico
-app.get('/favicon.ico', (req, res) => {
-	res.status(204).end(); // Повертає статус 204 (No Content)
+// Обробник для отримання списку рослин за категорією
+app.get('/plants/:category', (req, res) => {
+	const category = req.params.category;
+	const categoryPlants = plants[category];
+
+	if (categoryPlants) {
+		res.json(categoryPlants);
+	} else {
+		res.status(404).json({ message: 'Category not found' });
+	}
+});
+
+// Обробник для отримання окремої рослини за ID
+app.get('/plants/:category/:id', (req, res) => {
+	const category = req.params.category;
+	const id = req.params.id;
+	const plant = plants[category] ? plants[category][id] : null;
+
+	if (plant) {
+		res.json(plant);
+	} else {
+		res.status(404).json({ message: 'Plant not found' });
+	}
 });
 
 // Запуск сервера
