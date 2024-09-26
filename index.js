@@ -137,14 +137,21 @@ app.get('/plants/:category', (req, res) => {
 	}
 });
 
-// Обробник для отримання окремої рослини за ID
-app.get('/plants/:category/:id', (req, res) => {
-	const category = req.params.category;
+// Обробник для отримання рослини за ID
+app.get('/plants/id/:id', (req, res) => {
 	const id = req.params.id;
-	const plant = plants[category] ? plants[category][id] : null;
+	let foundPlant = null;
 
-	if (plant) {
-		res.json(plant);
+	// Шукаємо по всіх категоріях
+	for (const category in plants) {
+		if (plants[category][id]) {
+			foundPlant = plants[category][id];
+			break;
+		}
+	}
+
+	if (foundPlant) {
+		res.json(foundPlant);
 	} else {
 		res.status(404).json({ message: 'Plant not found' });
 	}
