@@ -341,7 +341,7 @@ const plants = {
 		24: {
 			name: 'Алоє Мікс',
 			price: '500',
-			img: 'https://images.prom.ua/4904957266_w640_h640_aloe-perfoliata-aloe.jpg',
+			img: 'https://mrsad.ru/wp-content/uploads/2015/08/000015-e1440069689212-600x455.jpg',
 			flowerSize: '20-30',
 			isFlowering: false,
 			desc: 'Алоє Мікс — це сукулентна кімнатна рослина, відома своїми соковитими листками, що містять корисні речовини, які часто використовуються в медицині та косметології. Алоє має гарний зелений колір та характерні колючі краї, що робить його привабливим елементом декору. Ця рослина проста в догляді, ідеально підходить для початківців.',
@@ -503,9 +503,9 @@ const plants = {
 		},
 
 		36: {
-			name: 'https://cdn.27.ua/sc--media--prod/default/2b/a4/25/2ba425d4-43d0-4df0-952c-1bf16dd2c7d0.jpg',
+			name: 'Бонсай над водоспадом Magic Garden',
 			price: '3500',
-			img: 'https://cdn.asterias.od.ua/images/bonzai-waterfall.jpg',
+			img: 'https://cdn.27.ua/sc--media--prod/default/2b/a4/25/2ba425d4-43d0-4df0-952c-1bf16dd2c7d0.jpg',
 			flowerSize: '60',
 			isFlowering: false,
 			desc: 'Бонсай над водоспадом Magic Gardens — це вражаюча композиція, яка поєднує в собі красу стабілізованих рослин і елементи водоспаду. Ця декоративна рослина створює атмосферу спокою та гармонії, роблячи будь-який простір більш затишним. Завдяки стабілізованим рослинам, бонсай зберігає свій природний вигляд без потреби в постійному догляді.',
@@ -609,6 +609,12 @@ app.get('/plants/id/:id', (req, res) => {
 	} else {
 		res.status(404).json({ message: 'Plant not found' });
 	}
+});
+
+// Обробник для отримання всіх категорій
+app.get('/plants/categories', (req, res) => {
+	const categories = Object.keys(plants);
+	res.json(categories);
 });
 
 // Запуск сервера
