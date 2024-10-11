@@ -82,7 +82,7 @@ const plants = {
 			id: 80,
 			name: 'Монстера',
 			price: '1650',
-			img: 'https://cdn.asterias.od.ua/images/monstera.jpg',
+			img: 'https://azalianow.ru/blog/wp-content/uploads/2024/08/Monstera-Delicioza-150-sm-ot-AzaliaNow.webp',
 			flowerSize: '80',
 			isFlowering: false,
 			desc: "це популярна декоративна рослина, відома своїм екзотичним виглядом і великими, розрізаними листками, які можуть досягати вражаючих розмірів. Її темно-зелені листки мають характерні отвори і рвані краї, що надає їй оригінальний вигляд. Завдяки своїй невибагливості та витривалості, Монстера чудово підходить для вирощування в кімнатних умовах і є фаворитом серед дизайнерів інтер'єрів.', conditionsСare: 'Монстера потребує яскравого, але розсіяного світла, може переносити напівтінь. Поливайте рослину, коли ґрунт зверху підсихає, уникаючи надлишкової вологи. Для кращого росту забезпечте високу вологість і періодично протирайте листки від пилу. Важливо також підпирати рослину, оскільки вона любить витися.",
@@ -862,23 +862,27 @@ app.get('/plants/:category', (req, res) => {
 	}
 });
 
-// Обробник для отримання рослини за ID
 app.get('/plants/id/:id', (req, res) => {
-	const id = req.params.id;
+	const id = parseInt(req.params.id); // Перетворюємо ID на число
 	let foundPlant = null;
 
 	// Шукаємо по всіх категоріях
 	for (const category in plants) {
-		if (plants[category][id]) {
-			foundPlant = plants[category][id];
-			break;
+		const categoryPlants = plants[category]; // Отримуємо рослини в категорії
+		// Шукаємо рослину з відповідним ID
+		for (const plantId in categoryPlants) {
+			if (categoryPlants[plantId].id === id) {
+				foundPlant = categoryPlants[plantId]; // Зберігаємо знайдену рослину
+				break; // Виходимо з внутрішнього циклу
+			}
 		}
+		if (foundPlant) break; // Виходимо з зовнішнього циклу, якщо рослина знайдена
 	}
 
 	if (foundPlant) {
-		res.json(foundPlant);
+		res.json(foundPlant); // Повертаємо знайдену рослину у форматі JSON
 	} else {
-		res.status(404).json({ message: 'Plant not found' });
+		res.status(404).json({ message: 'Plant not found' }); // Повертаємо помилку 404, якщо не знайшли рослину
 	}
 });
 
