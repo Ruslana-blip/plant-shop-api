@@ -9,6 +9,7 @@ app.use(express.json());
 const plants = {
 	'Декоративно-листяні': {
 		3: {
+			category: 'Декоративно-листяні',
 			id: 30,
 			name: 'Хамедорея',
 			price: 500,
@@ -32,9 +33,10 @@ const plants = {
 				'Хамедорея любить високу вологість, тому її слід регулярно обприскувати або тримати в приміщеннях з вологою атмосферою.',
 		},
 		4: {
+			category: 'Декоративно-листяні',
 			id: 40,
 			name: 'Фікус Лірата Бамбіно',
-			price: 630,
+			price: 1470,
 			img: [
 				'https://i.pinimg.com/control/564x/e0/45/ff/e045ff7d12d164ff37f040df0c7b6dd4.jpg',
 				'https://i.pinimg.com/564x/57/50/97/57509737af0a49f1d6480346b10e8486.jpg',
@@ -54,9 +56,10 @@ const plants = {
 				'Фікус Лірата Бамбіно полюбляє високу вологість, тому корисно регулярно обприскувати листя.',
 		},
 		5: {
+			category: 'Декоративно-листяні',
 			id: 50,
 			name: 'Кротон Екселент',
-			price: '749',
+			price: 879,
 			img: [
 				'https://flowers.ua/images/Flowers/articles/293-img-1.jpg',
 				'https://i.pinimg.com/564x/e6/48/12/e64812514944a7a719b23c1113cb8fb4.jpg',
@@ -77,9 +80,10 @@ const plants = {
 				'Кротон Екселент полюбляє високу вологість, тому обприскування листя буде корисним.',
 		},
 		6: {
+			category: 'Декоративно-листяні',
 			id: 60,
 			name: 'Заміокулькас',
-			price: '1520',
+			price: 1520,
 			img: [
 				'https://cdn.asterias.od.ua/images/81/81-2-61-700x700.jpg',
 				'https://i.pinimg.com/564x/bf/8b/54/bf8b5447377e0345f64fa62c459b735e.jpg',
@@ -99,9 +103,10 @@ const plants = {
 				'Заміокулькас добре переносить низький рівень вологості, але регулярне обприскування підвищує його комфорт.',
 		},
 		7: {
+			category: 'Декоративно-листяні',
 			id: 70,
 			name: 'Фікус Кінкі',
-			price: '890',
+			price: 890,
 			img: [
 				'https://i.pinimg.com/564x/b9/54/b7/b954b7fd3a93c1e243f4b6560209219a.jpg',
 				'https://i.pinimg.com/564x/2a/c3/e7/2ac3e7b1300f2f050e3352261c0d1bc6.jpg',
@@ -122,9 +127,10 @@ const plants = {
 				'Фікус Кінкі полюбляє підвищену вологість, тому обприскування листя буде корисним.',
 		},
 		8: {
+			category: 'Декоративно-листяні',
 			id: 80,
 			name: 'Монстера',
-			price: '1650',
+			price: 1650,
 			img: [
 				'https://azalianow.ru/blog/wp-content/uploads/2024/08/Monstera-Delicioza-150-sm-ot-AzaliaNow.webp',
 				'https://i.pinimg.com/564x/04/c5/6a/04c56ad01ab9d1db84646a150f35eea5.jpg',
@@ -142,9 +148,10 @@ const plants = {
 				'Монстера полюбляє високу вологість, тому регулярне обприскування листя буде корисним.',
 		},
 		9: {
+			category: 'Декоративно-листяні',
 			id: 90,
 			name: 'Фікус Бенжаміна Екзотіка',
-			price: '2440',
+			price: 2440,
 			img: [
 				'https://i.pinimg.com/564x/45/41/3c/45413c7a0cadbda10b007ac6ea4232cd.jpg',
 				'https://i.pinimg.com/564x/5a/aa/9e/5aaa9e671bd7f26539a4118fca3a30bc.jpg',
@@ -164,9 +171,10 @@ const plants = {
 				'Фікус Бенжаміна Екзотіка полюбляє підвищену вологість, тому регулярне обприскування листя буде корисним.',
 		},
 		10: {
+			category: 'Декоративно-листяні',
 			id: 100,
 			name: 'Традесканція Білоквіткова',
-			price: '720',
+			price: 720,
 			img: [
 				'https://i.pinimg.com/control/564x/3c/d4/16/3cd41614312425742f46776ad913ef22.jpg',
 				'https://i.pinimg.com/control/564x/9a/3c/7e/9a3c7e318b39bc4e6747a4f2dd4f2798.jpg',
@@ -188,9 +196,10 @@ const plants = {
 	},
 	'Декоративно-квітучі': {
 		11: {
+			category: 'Декоративно-квітучі',
 			id: 110,
 			name: 'Спатифілум',
-			price: '950',
+			price: 950,
 			img: [
 				'https://i.pinimg.com/736x/f1/7c/2b/f17c2bb497112cb7f1049e0e739a4a36.jpg',
 				'https://i.pinimg.com/474x/52/42/93/524293248bacc89b18d0dd67615feaa6.jpg',
@@ -210,9 +219,10 @@ const plants = {
 				'Спатифілум полюбляє високу вологість, тому регулярне обприскування листя буде корисним.',
 		},
 		12: {
+			category: 'Декоративно-квітучі',
 			id: 120,
 			name: 'Лаванда Florium',
-			price: '900',
+			price: 900,
 			img: [
 				'https://i.pinimg.com/564x/dd/c1/81/ddc18103d1f3fac0d4a335f5f771025b.jpg',
 				'https://cdn.27.ua/sc--media--prod/default/fb/df/b2/fbdfb2da-09a0-4842-970d-5fe708e5f52e.jpg',
@@ -232,9 +242,10 @@ const plants = {
 				'Лаванда не любить високу вологість і краще росте в сухих умовах, тому надмірне поливання слід уникати.',
 		},
 		13: {
+			category: 'Декоративно-квітучі',
 			id: 130,
 			name: 'Азалія Мікс',
-			price: '1850',
+			price: 2500,
 			img: [
 				'https://shop.camellia.ua/upload/kamelia_flora/photos/4c/61/1200x1200/40125776_64749a2718ce1.JPG',
 				'https://www.nl.ua/upload/iblock/c10/242669_2.jpeg',
@@ -254,12 +265,13 @@ const plants = {
 				'Азалія полюбляє високу вологість, тому регулярне обприскування листя буде корисним.',
 		},
 		14: {
+			category: 'Декоративно-квітучі',
 			id: 140,
 			name: 'Гортензія Мікс',
-			price: '1200',
+			price: 1800,
 			img: [
-				'https://cdn.asterias.od.ua/images/5/5-1-88-700x705.jpg',
-				'https://i.pinimg.com/564x/62/4e/dc/624edc03a2628aa691c987cd2cc1961c.jpg',
+				'https://i.pinimg.com/564x/ff/4e/07/ff4e0735664b0b2ba662d21e40d4ef02.jpg',
+				'https://i.pinimg.com/564x/ad/8d/d1/ad8dd1c833af9d338ca5627b829852b7.jpg',
 				'https://kvetki-minsk.by/wp-content/uploads/2017/12/%D0%B3%D0%BE%D1%80%D1%82%D0%B0-%D1%81%D0%B8%D0%BD%D1%8F%D1%8F.jpg',
 			],
 			flowerSize: '25',
@@ -277,9 +289,10 @@ const plants = {
 				'Гортензія полюбляє високу вологість, тому регулярне обприскування листя буде корисним.',
 		},
 		15: {
+			category: 'Декоративно-квітучі',
 			id: 150,
 			name: 'Карісса Balemala',
-			price: '950',
+			price: 950,
 			img: [
 				'https://cdn.27.ua/sc--media--prod/default/10/a4/c0/10a4c0d7-5b2a-48e2-8095-dd20014032a3.jpg',
 				'https://file.agro-market.net/upload/resize_cache/iblock/e43/345_483_1/lc4kvu9p3dfjqklufgxgprhgram1kkfn.jpeg',
@@ -300,9 +313,10 @@ const plants = {
 				'Карісса добре переносить низький рівень вологості, але регулярне обприскування листя може бути корисним.',
 		},
 		16: {
+			category: 'Декоративно-квітучі',
 			id: 160,
 			name: 'Антуріум Success Red',
-			price: '1450',
+			price: 1450,
 			img: [
 				'https://yaskravaklumba.com.ua/image/cache/catalog/komnatnye/anturium/succes-red_01-500x500.jpg',
 				'https://i.pinimg.com/564x/39/5f/80/395f806806bdb625f41761da31b02fd8.jpg',
@@ -322,9 +336,10 @@ const plants = {
 				'Антуріум полюбляє високу вологість, тому регулярне обприскування листя буде корисним.',
 		},
 		17: {
+			category: 'Декоративно-квітучі',
 			id: 170,
 			name: 'Антуріум Black Queen',
-			price: '1700',
+			price: 1700,
 			img: [
 				'https://i.pinimg.com/564x/7b/a4/f3/7ba4f32b11b3a404e62dd37e47f4f964.jpg',
 				'https://sharm24.com.ua/images/detailed/1/anthurium-an-black-queen-d17-l65.jpg',
@@ -346,9 +361,10 @@ const plants = {
 				'Антуріум Black Queen полюбляє високу вологість, тому регулярне обприскування листя буде корисним.',
 		},
 		18: {
+			category: 'Декоративно-квітучі',
 			id: 180,
 			name: 'Азалія Мікс ',
-			price: '950',
+			price: 950,
 			img: [
 				'https://img.auchan.ua/rx/q_90,ofmt_webp/auchan.ua/media/catalog/product/7/6/7600000115402_1.jpg',
 				'https://i.pinimg.com/564x/40/1b/ae/401baebbb45d725db6f17c546da757bb.jpg',
@@ -367,11 +383,11 @@ const plants = {
 			humidityLevel:
 				'Азалія полюбляє високу вологість, тому регулярне обприскування листя буде корисним.',
 		},
-
 		19: {
+			category: 'Декоративно-квітучі',
 			id: 190,
 			name: 'Хризантема',
-			price: '450',
+			price: 450,
 			img: [
 				'https://cdn.asterias.od.ua/images/104/104-2-38-700x690.jpg',
 				'https://i.pinimg.com/564x/79/31/90/793190d65dcd2f261fcc3d8afe87e640.jpg',
@@ -391,9 +407,10 @@ const plants = {
 				"Хризантема не вимагає високої вологості, але регулярний полив є важливим для її здоров'я.",
 		},
 		20: {
+			category: 'Декоративно-квітучі',
 			id: 200,
 			name: 'Троянда Мікс 10x20 см',
-			price: '1200',
+			price: 1200,
 			img: [
 				'https://movakvitiv.com/wp-content/uploads/2022/09/troyanda-mistse.jpg',
 				'https://images.prom.ua/5256935482_w640_h640_rozy-komnatnye-rozy.jpg',
@@ -413,13 +430,13 @@ const plants = {
 			humidityLevel:
 				'Троянди вимагають середнього рівня вологості, тому регулярний полив важливий, особливо в спекотні дні.',
 		},
-
 		21: {
+			category: 'Декоративно-квітучі',
 			id: 210,
 			name: 'Ю-Джига Пеларгонія',
-			price: '980',
+			price: 980,
 			img: [
-				'https://cdn.27.ua/sc--media--prod/default/ae/f5/ff/aef5ff35-8075-463f-b338-6fd921d1013a.jpg',
+				'https://i.pinimg.com/564x/e4/74/c7/e474c748ac5a5f5123dcc40b1603c1aa.jpg',
 				'https://i.pinimg.com/564x/15/5d/e4/155de4c4fb535626c73c483a3c8ce01e.jpg',
 				'https://i.pinimg.com/564x/39/5f/f8/395ff8d14f26437cb95dbda17b35148f.jpg',
 			],
@@ -440,9 +457,10 @@ const plants = {
 	},
 	Орхідеї: {
 		0: {
+			category: 'Орхідеї',
 			id: 0,
 			name: 'Дендробіум',
-			price: 500,
+			price: 1700,
 			img: [
 				'https://shop.camellia.ua/upload/kamelia_flora/photos/49/2d/1200x1200/ce67be92_6475f990b5b9d.JPG',
 				'https://i.pinimg.com/564x/ff/98/7e/ff987ebf55658084ba8ccc6156a34f82.jpg',
@@ -464,9 +482,10 @@ const plants = {
 			status: 'Розпродаж',
 		},
 		1: {
+			category: 'Орхідеї',
 			id: 10,
 			name: 'Фаленопсис Біла',
-			price: 700,
+			price: 1600,
 			img: [
 				'https://i.pinimg.com/564x/e8/34/b0/e834b0523a8f6f796e4644bf071b1c32.jpg',
 				'https://i.pinimg.com/564x/fb/c9/c2/fbc9c29060d2081e7758b04452cbbc04.jpg',
@@ -488,6 +507,7 @@ const plants = {
 				'Фаленопсис полюбляє високу вологість, тому регулярне обприскування листя буде корисним.',
 		},
 		2: {
+			category: 'Орхідеї',
 			id: 20,
 			name: 'Міні орхідея',
 			price: 1200,
@@ -511,9 +531,10 @@ const plants = {
 				'Міні орхідея полюбляє високу вологість, тому регулярне обприскування листя або використання зволожувача повітря буде корисним.',
 		},
 		51: {
+			category: 'Орхідеї',
 			id: 510,
 			name: 'Орхідея Фаленопсис Каскад',
-			price: 1200,
+			price: 1460,
 			img: [
 				'https://plantsroom.com.ua/wp-content/uploads/2024/07/img_8956-scaled.jpg',
 				'https://i.pinimg.com/564x/b3/68/81/b36881e531c7932af6793a467efe47f9.jpg',
@@ -534,9 +555,10 @@ const plants = {
 			status: 'Новинки',
 		},
 		52: {
+			category: 'Орхідеї',
 			id: 520,
 			name: 'Кімнатна рослина Камбрія мікс 12х60',
-			price: 600,
+			price: 800,
 			img: [
 				'https://ukraflora.ua/image/cache/catalog/image/cache/catalog/content/gorschechka/kambrija_1stovbur_kaskad_1-1100x1100.webp',
 				'https://floralife.com.ua/image/cache/catalog/houseplants/orchids/cambria-royal-100/orchid-cambria-royal-100-4-1000x1000.jpg',
@@ -558,9 +580,10 @@ const plants = {
 			status: 'Розпродаж',
 		},
 		53: {
+			category: 'Орхідеї',
 			id: 530,
 			name: 'Фаленопсіс плямистий',
-			price: 800,
+			price: 980,
 			img: [
 				'https://lorashen.ua/static/media/uploads/product/Rasteniya/.thumbnails/img_9315.jpg/img_9315-0x600.jpg',
 				'https://images.prom.ua/5016348387_w640_h640_falenopsis-gorshechnoe-rastenie.jpg',
@@ -580,6 +603,7 @@ const plants = {
 				'Фаленопсіс плямистий полюбляє високу вологість, тому регулярне обприскування листя буде корисним.',
 		},
 		54: {
+			category: 'Орхідеї',
 			id: 540,
 			name: 'Орхідея Фаленопсис дві гілки 12/70 см, Жовтий',
 			price: 950,
@@ -603,6 +627,7 @@ const plants = {
 			status: 'Топ продажів',
 		},
 		55: {
+			category: 'Орхідеї',
 			id: 25,
 			name: 'Рослина Фаленопсіс Royal',
 			price: 2600,
@@ -627,9 +652,10 @@ const plants = {
 	},
 	Сукуленти: {
 		22: {
+			category: 'Сукуленти',
 			id: 220,
-			name: 'Кактус Ехінопсис Мікс Різнокольоровий',
-			price: '620',
+			name: 'Кактус Ехінопсис Різнокольоровий',
+			price: 620,
 			img: [
 				'https://cdn.asterias.od.ua/images/26/26-1-37-700x702.jpg',
 				'https://i.pinimg.com/564x/9a/89/a3/9a89a3934e1e5359400c4be4b3ee5cd6.jpg',
@@ -652,9 +678,10 @@ const plants = {
 			status: 'Топ продажів',
 		},
 		23: {
+			category: 'Сукуленти',
 			id: 230,
 			name: 'Хавортія ',
-			price: '450',
+			price: 450,
 			img: [
 				'https://i.pinimg.com/564x/77/e7/28/77e72839d9e0f5afe5c5f5d1b4dd50a8.jpg',
 				'https://cdn.asterias.od.ua/images/136/136-14-20-700x583.jpg',
@@ -676,9 +703,10 @@ const plants = {
 			status: 'Розпродаж',
 		},
 		24: {
+			category: 'Сукуленти',
 			id: 240,
 			name: 'Алоє Мікс',
-			price: '500',
+			price: 500,
 			img: [
 				'https://mrsad.ru/wp-content/uploads/2015/08/000015-e1440069689212-600x455.jpg',
 				'https://i.pinimg.com/736x/5b/48/f6/5b48f657740a762334d2476986cfead6.jpg',
@@ -699,9 +727,10 @@ const plants = {
 			status: 'Новинки',
 		},
 		25: {
+			category: 'Сукуленти',
 			id: 250,
 			name: 'Сукулент Красула Овата',
-			price: '600',
+			price: 600,
 			img: [
 				'https://cdn.asterias.od.ua/images/128/128-1-3-700x668.jpg',
 				'https://vsegda-pomnim.com/uploads/posts/2022-04/1650625930_8-vsegda-pomnim-com-p-krassula-vidi-foto-i-nazvaniya-tsvetenie-8.jpg',
@@ -721,9 +750,10 @@ const plants = {
 				'Красула Овата не потребує високої вологості і краще росте в сухих умовах, тому полив слід здійснювати помірно.',
 		},
 		26: {
+			category: 'Сукуленти',
 			id: 260,
 			name: 'Ріпсаліс Мікс',
-			price: '850',
+			price: 850,
 			img: [
 				'https://cdn.asterias.od.ua/images/48/48-5-19-700x549.jpg',
 				'https://orchidsart.com/wp-content/uploads/2018/11/%D1%80%D0%B8%D0%BF%D1%81%D0%B0%D0%BB%D0%B8%D1%81-14%D1%81%D0%BC.jpg',
@@ -745,9 +775,10 @@ const plants = {
 			status: 'Топ продажів',
 		},
 		27: {
+			category: 'Сукуленти',
 			id: 270,
-			name: 'Сансевієрія d12x40 Cylindrica',
-			price: '750',
+			name: 'Сансевієрія Cylindrica',
+			price: 750,
 			img: [
 				'https://i.pinimg.com/564x/7f/30/f0/7f30f04117999454b2156f986fdcfa80.jpg',
 				'https://i.pinimg.com/control/564x/72/e9/1c/72e91c5da7acb7a86e3fb33a865e3cea.jpg',
@@ -768,9 +799,10 @@ const plants = {
 			status: 'Новинки',
 		},
 		29: {
+			category: 'Сукуленти',
 			id: 290,
 			name: 'Кактус Ехінокактус Grusonii 27х25',
-			price: '1200',
+			price: 1200,
 			img: [
 				'https://cdn.asterias.od.ua/images/26/26-14-3-700x548.jpg',
 				'https://i.pinimg.com/564x/6c/cd/6a/6ccd6a9d490f223a81c9d9f2da59fd10.jpg',
@@ -792,9 +824,10 @@ const plants = {
 	},
 	'Цитрусові рослини': {
 		30: {
+			category: 'Цитрусові рослини',
 			id: 300,
 			name: 'Лимонне Дерево з Плодами',
-			price: '2500',
+			price: 2500,
 			img: [
 				'https://i.pinimg.com/564x/54/23/8c/54238c19bd79a125a6edd71b492611b9.jpg',
 				'https://plantsroom.com.ua/wp-content/uploads/2024/07/img_8986.png',
@@ -816,9 +849,10 @@ const plants = {
 		},
 
 		31: {
+			category: 'Цитрусові рослини',
 			id: 310,
 			name: 'Лаймове Дерево',
-			price: '2200',
+			price: 2200,
 			img: [
 				'https://cdn.27.ua/sc--media--prod/default/7f/a2/2e/7fa22e51-da6a-4a78-b997-a7cb25685da3.jpg',
 				'https://i.pinimg.com/564x/75/aa/d3/75aad3070683208423afd8583d31b672.jpg',
@@ -839,9 +873,10 @@ const plants = {
 			status: 'Топ продажів',
 		},
 		32: {
+			category: 'Цитрусові рослини',
 			id: 320,
 			name: 'Цісус Підвісний Mandaiana',
-			price: '800',
+			price: 800,
 			img: [
 				'https://fleurplants.com.ua/image/cache/catalog/catalog/plants-to-1m/cissus-fp/cissus-fp-2-1200x800.jpg',
 				'https://static.tildacdn.com/tild3438-6633-4230-b161-623362616164/6-47-700x511.jpg',
@@ -864,9 +899,10 @@ const plants = {
 		},
 
 		33: {
+			category: 'Цитрусові рослини',
 			id: 330,
 			name: 'Цитрус Каламондін з Плодами',
-			price: '2700',
+			price: 3000,
 			img: [
 				'https://plantsroom.com.ua/wp-content/uploads/2024/06/img_7694.png',
 				'https://i.pinimg.com/564x/0a/18/b8/0a18b8591069e6d93c1e35c4d75b2a04.jpg',
@@ -887,9 +923,10 @@ const plants = {
 			status: 'Новинки',
 		},
 		34: {
+			category: 'Цитрусові рослини',
 			id: 340,
 			name: 'Цитрус Мандарин',
-			price: '2400',
+			price: 2800,
 			img: [
 				'https://kvitosvit.com.ua/2041/mandarin-kimnatnij-abkhazkij.jpg',
 				'https://i.pinimg.com/564x/19/d6/74/19d67425ff1beb418ae89c25f0d7c56e.jpg',
@@ -1022,6 +1059,7 @@ const plants = {
 				'Фейхоа полюбляє помірну вологість, тому регулярний полив та обприскування листя будуть корисними.',
 		},
 		65: {
+			category: 'Екзотичні кімнатні рослини',
 			id: 650,
 			name: 'Розмарин',
 			price: 1200,
@@ -1047,6 +1085,7 @@ const plants = {
 	},
 	Флораріуми: {
 		70: {
+			category: 'Флораріуми',
 			id: 700,
 			name: 'Флораріум з орхідеєю',
 			price: 3000,
@@ -1067,6 +1106,7 @@ const plants = {
 			status: 'Топ продажів',
 		},
 		71: {
+			category: 'Флораріуми',
 			id: 710,
 			name: 'Флораріум з деревом Бонсаєм',
 			price: 2500,
@@ -1085,6 +1125,7 @@ const plants = {
 				'Бонсай полюбляє помірну вологість, тому регулярне обприскування листя та контроль за вологістю повітря будуть корисними.',
 		},
 		72: {
+			category: 'Флораріуми',
 			id: 720,
 			name: 'Флораріум з сукулентами',
 			price: 1800,
@@ -1104,6 +1145,7 @@ const plants = {
 				'Сукуленти не потребують високої вологості і краще ростуть в сухих умовах, тому полив слід здійснювати помірно.',
 		},
 		73: {
+			category: 'Флораріуми',
 			id: 730,
 			name: 'Флораріум з орхідеєю',
 			price: 3000,
@@ -1124,6 +1166,7 @@ const plants = {
 			status: 'Топ продажів',
 		},
 		74: {
+			category: 'Флораріуми',
 			id: 740,
 			name: 'Міні-флораріум Крапля',
 			price: 800,
@@ -1143,6 +1186,7 @@ const plants = {
 				'Міні-флораріум потребує помірної вологості, тому регулярне обприскування листя та контроль за вологістю повітря будуть корисними.',
 		},
 		75: {
+			category: 'Флораріуми',
 			id: 38,
 			name: 'Флораріум з орхідеєю',
 			price: 3500,
@@ -1164,9 +1208,10 @@ const plants = {
 	},
 	Бонсай: {
 		35: {
+			category: 'Бонсай',
 			id: 350,
 			name: 'Бонсай на камені',
-			price: '3200',
+			price: 3200,
 			img: 'https://magicgardens.com.ua/wp-content/uploads/2024/06/IMG_6246.jpg',
 			flowerSize: '50',
 			isFlowering: false,
@@ -1185,9 +1230,10 @@ const plants = {
 		},
 
 		36: {
+			category: 'Бонсай',
 			id: 360,
 			name: 'Бонсай над водоспадом',
-			price: '3500',
+			price: 3500,
 			img: 'https://cdn.27.ua/sc--media--prod/default/2b/a4/25/2ba425d4-43d0-4df0-952c-1bf16dd2c7d0.jpg',
 			flowerSize: '60',
 			isFlowering: false,
@@ -1205,9 +1251,10 @@ const plants = {
 			status: 'Розпродаж',
 		},
 		37: {
+			category: 'Бонсай',
 			id: 370,
 			name: 'Фікус Бонсай Мікрокарпа',
-			price: '1500',
+			price: 1500,
 			img: 'https://i.pinimg.com/564x/9d/dc/a1/9ddca1efd842f33cdeca6346b158404b.jpg',
 			flowerSize: '30',
 			isFlowering: false,
@@ -1225,9 +1272,10 @@ const plants = {
 			status: 'Новинки',
 		},
 		38: {
+			category: 'Бонсай',
 			id: 380,
 			name: 'Бонсай Magic Gardens',
-			price: '1800',
+			price: 1800,
 			img: 'https://magicgardens.com.ua/wp-content/uploads/2023/04/IMG_8729.jpg',
 			flowerSize: '20',
 			desc: 'Бонсай Magic Gardens — це стильна і елегантна композиція, яка додасть вишуканості будь-якому інтер’єру. Завдяки своїй компактній формі і натуральному вигляду, цей бонсай стане чудовим акцентом на столі або підвіконні. Рослина вимагає мінімального догляду, що робить її ідеальним вибором для зайнятих людей.',
@@ -1243,9 +1291,10 @@ const plants = {
 				'Бонсай полюбляє помірну вологість, тому регулярне обприскування листя та контроль за вологістю повітря будуть корисними.',
 		},
 		39: {
+			category: 'Бонсай',
 			id: 390,
 			name: 'Мосаріум Бонсай',
-			price: '2500',
+			price: 2500,
 			img: 'https://cdn.27.ua/sc--media--prod/default/85/d0/cc/85d0cc35-b654-405e-b2d8-3afc86ff338a.jpg',
 			flowerSize: '25',
 			isFlowering: false,
@@ -1262,9 +1311,10 @@ const plants = {
 				'Бонсай зі стабілізованими рослинами не потребує високої вологості, але регулярне обприскування може покращити загальний стан рослин.',
 		},
 		40: {
+			category: 'Бонсай',
 			id: 400,
 			name: 'Бонсай в банці Magic',
-			price: '2000',
+			price: 2000,
 			img: 'https://cdn.27.ua/sc--media--prod/default/0d/aa/52/0daa5283-180e-4106-a601-7cba2bc93707.jpg',
 			flowerSize: '12',
 			isFlowering: false,
