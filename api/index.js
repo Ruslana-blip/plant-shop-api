@@ -3,7 +3,11 @@ const cors = require('cors'); // Імпортуємо cors
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(cors()); // Додаємо middleware для CORS
+const corsOptions = {
+	origin: 'http://localhost:5173',
+};
+
+app.use(cors(corsOptions)); // Додаємо middleware для CORS
 app.use(express.json());
 
 const plants = {

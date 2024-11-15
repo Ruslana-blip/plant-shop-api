@@ -2,14 +2,14 @@
 	"version": 2,
 	"builds": [
 		{
-			"src": "/Applications/my/Study/plants-api/plant-shop-api/index.js",
+			"src": "api/index.js",
 			"use": "@vercel/node"
 		}
 	],
 	"routes": [
 		{
 			"src": "/(.*)",
-			"dest": "/Applications/my/Study/plants-api/plant-shop-api/index.js"
+			"dest": "api/index.js"
 		}
 	]
 }
