@@ -2260,6 +2260,6 @@ app.get('/plants/categories', (req, res) => {
 	res.json(categories);
 });
 // Запуск сервера
-app.listen(3000, () => {
-	console.log('Сервер працює на порті 3000');
+app.listen(process.env.PORT || 3000, () => {
+	console.log('Сервер працює');
 });
