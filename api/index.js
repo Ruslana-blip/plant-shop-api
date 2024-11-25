@@ -3,7 +3,7 @@ const cors = require('cors'); // Імпортуємо cors
 const app = express();
 
 const corsOptions = {
-	origin: 'https://flowers-sepia-sigma.vercel.app', // Замість цього ви можете використовувати список доменів
+	origin: 'https://home-plants-phi.vercel.app/', // Замість цього ви можете використовувати список доменів
 	methods: 'GET,POST', // Якщо потрібно
 	allowedHeaders: 'Content-Type,Authorization', //
 };
