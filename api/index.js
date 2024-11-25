@@ -3,26 +3,14 @@ const cors = require('cors'); // Імпортуємо cors
 const app = express();
 
 const corsOptions = {
-	origin: (origin, callback) => {
-		const allowedOrigins = [
-			'http://localhost:3000', // Локальний сервер
-			'https://home-plants-phi.vercel.app', // Домен
-		];
-		if (!origin || allowedOrigins.includes(origin)) {
-			callback(null, true);
-		} else {
-			callback(new Error('Not allowed by CORS'));
-		}
-	},
-	methods: 'GET,POST',
-	allowedHeaders: 'Content-Type,Authorization',
+	origin: ['http://localhost:5173', 'https://home-plants-phi.vercel.app'], // Замість цього ви можете використовувати список доменів
+	methods: 'GET,POST', // Якщо потрібно
+	allowedHeaders: 'Content-Type,Authorization', //
 };
 
 app.use(cors(corsOptions)); // Додаємо middleware для CORS
 app.use(express.json());
-app.get('/', (req, res) => {
-	res.send('CORS налаштовано!');
-});
+
 const plants = {
 	'Decorative deciduous': {
 		3: {
