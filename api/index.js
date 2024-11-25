@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = require('cors'); // Імпортуємо cors
 const app = express();
-const port = process.env.PORT || 3000;
 
 const corsOptions = {
 	origin: ['http://localhost:5173', 'https://home-plants-phi.vercel.app'], // Дозволені джерела
@@ -10,13 +9,17 @@ const corsOptions = {
 };
 app.use(cors(corsOptions)); // Додаємо middleware для CORS
 app.use(express.json());
-
+app.get('/', (req, res) => {
+	res.send('CORS налаштовано!');
+});
 const plants = {
-	'Декоративно-листяні': {
+	'Decorative deciduous': {
 		3: {
 			category: 'Декоративно-листяні',
+			category_en: 'Decorative deciduous',
 			id: 30,
 			name: 'Хамедорея',
+			name_en: 'Hamedorea',
 			price: 500,
 			img: [
 				'https://i.pinimg.com/564x/44/51/bd/4451bd3dbc4ef1e20caa4b5ed0aa8fd2.jpg',
@@ -36,6 +39,19 @@ const plants = {
 				'Рослина потребує яскравого, але розсіяного світла, уникаючи прямого сонця.',
 			humidityLevel:
 				'Хамедорея любить високу вологість, тому її слід регулярно обприскувати або тримати в приміщеннях з вологою атмосферою.',
+			desc_en:
+				'This is a genus of palm trees that includes various species, the height of which can vary. Typically, they reach a height of 1 to 3 meters, depending on the specific species. For example, Chamaedorea elegans usually has a height of about 1-1.5 meters.',
+			conditionsСare_en:
+				'Chamaedorea needs bright, diffused light, moderate watering with drying of the top layer of soil, high humidity, light drained substrate and fertilizing with liquid fertilizer during active growth',
+			status_en: 'Sale',
+			soilType_en:
+				'Chamaedorea grows best in well-drained, light soil with the addition of peat or sand.',
+			temperature_en:
+				'The optimal temperature for Chamaedorea is from 16°C to 24°C',
+			lightRequirement_en:
+				'The plant needs bright, but diffused light, avoiding direct sunlight.',
+			humidityLevel_en:
+				'Chamaedorea loves high humidity, so it should be regularly sprayed or kept in rooms with humidity atmosphere.',
 		},
 		4: {
 			category: 'Декоративно-листяні',
@@ -59,6 +75,20 @@ const plants = {
 				'Рослина потребує яскравого, але розсіяного світла без прямого сонячного проміння.',
 			humidityLevel:
 				'Фікус Лірата Бамбіно полюбляє високу вологість, тому корисно регулярно обприскувати листя.',
+			category_en: 'Decorative-deciduous',
+			name_en: 'Ficus Lyrata Bambino',
+			desc_en:
+				'this is a compact decorative-deciduous plant with large, impressive leaves that have a characteristic wavy shape. This plant adds elegance to any interior with its lush greenery and slender shape',
+			conditionsСare_en:
+				'requires bright, diffused lighting and moderate watering, allowing the top layer of soil to dry out between waterings. It is recommended to spray the leaves regularly to maintain the necessary humidity.',
+			soilType_en:
+				'Ficus Lyrata Bambino needs well-drained soil rich in organic matter.',
+			temperature_en:
+				'The ideal temperature for ficus is between 18°C ​​and 24°C.',
+			lightRequirement_en:
+				'The plant needs bright but diffused light without direct sunlight.',
+			humidityLevel_en:
+				'Ficus Lyrata Bambino likes high humidity, so it is useful to spray the leaves regularly.',
 		},
 		5: {
 			category: 'Декоративно-листяні',
@@ -83,6 +113,19 @@ const plants = {
 				'Рослина потребує яскравого, розсіяного світла, але без прямого сонячного проміння.',
 			humidityLevel:
 				'Кротон Екселент полюбляє високу вологість, тому обприскування листя буде корисним.',
+			category_en: 'Decorative-deciduous',
+			name_en: 'Croton Excellent',
+			desc_en:
+				'This is a bright decorative-deciduous plant, known for its large, multi-colored leaves, which have rich yellow, red and green shades. Due to its attractive shape and color, this plant becomes a bright accent in any interior.',
+			conditionsСare_en:
+				'Croton Excellent needs bright light to maintain the saturation of colors, and watering should be regular, allowing the top layer of soil to dry out between waterings. It is important to avoid waterlogging to prevent root rot.',
+			soilType_en:
+				'Croton Excellent needs light, well-drained soil rich in organic matter.',
+			temperature_en: 'The optimum temperature for croton is 20°C to 25°C.',
+			lightRequirement_en:
+				'The plant needs bright, diffused light, but without direct sunlight.',
+			humidityLevel_en:
+				'Croton Excellent likes high humidity, so spraying the leaves will be useful.',
 		},
 		6: {
 			category: 'Декоративно-листяні',
@@ -106,6 +149,20 @@ const plants = {
 				'Рослина добре росте при яскравому непрямому світлі, але може переносити і затінені умови.',
 			humidityLevel:
 				'Заміокулькас добре переносить низький рівень вологості, але регулярне обприскування підвищує його комфорт.',
+			category_en: 'Decorative-deciduous',
+			name_en: 'Zamioculcas',
+			desc_en:
+				'also known as the "lucky tree" or "dollar tree", is a hardy and unpretentious plant with glossy, dark green leaves that grow on fleshy petioles. This plant is popular for its ability to withstand low light and irregular watering, making it an ideal choice for offices and residential premises',
+			conditionsСare_en:
+				'needs bright but diffused light, and does not require frequent watering - water the plant when the top layer of soil is completely dry. It is important to use well-drained soil to avoid waterlogging.',
+			soilType_en:
+				'Zamioculcas requires well-drained soil with the addition of sand or perlite for better drainage.',
+			temperature_en:
+				'The ideal temperature for Zamioculcas is between 18°C ​​and 26°C.',
+			lightRequirement_en:
+				'The plant grows well in bright indirect light, but can also tolerate shaded conditions.',
+			humidityLevel_en:
+				'Zamioculcas tolerates low humidity levels, but regular spraying increases its comfort.',
 		},
 		7: {
 			category: 'Декоративно-листяні',
@@ -130,6 +187,19 @@ const plants = {
 				'Рослина потребує яскравого розсіяного світла, проте уникайте прямих сонячних променів.',
 			humidityLevel:
 				'Фікус Кінкі полюбляє підвищену вологість, тому обприскування листя буде корисним.',
+			category_en: 'Decorative-deciduous',
+			name_en: 'Ficus Kinki',
+			desc_en:
+				'this is a compact and decorative variety of ficus with small glossy green leaves with white or cream edges. It is a popular houseplant due to its elegant appearance and ability to grow well indoors. Its small size makes it a great choice for limited spaces.',
+			conditionsСare_en:
+				'needs bright diffused light, but can tolerate partial shade. It should be watered when the top layer of soil dries out. Avoid overwatering the soil. For best growth, use well-drained soil and maintain moderate humidity.',
+			soilType_en:
+				'Ficus Kinki needs light, well-drained soil with a high organic content.',
+			temperature_en: 'The optimum temperature for ficus is 18°C ​​to 24°C.',
+			lightRequirement_en:
+				'The plant needs bright diffused light, but avoid direct sunlight.',
+			humidityLevel_en:
+				'Ficus Kinki likes high humidity, so spraying the leaves will be useful.',
 		},
 		8: {
 			category: 'Декоративно-листяні',
@@ -137,7 +207,7 @@ const plants = {
 			name: 'Монстера',
 			price: 1650,
 			img: [
-				'https://azalianow.ru/blog/wp-content/uploads/2024/08/Monstera-Delicioza-150-sm-ot-AzaliaNow.webp',
+				'https://i.pinimg.com/736x/a3/70/b0/a370b0d4d580afa46378a465502b5e32.jpg',
 				'https://i.pinimg.com/564x/04/c5/6a/04c56ad01ab9d1db84646a150f35eea5.jpg',
 				'https://i.pinimg.com/564x/7a/ee/f5/7aeef5fd34871ea84bafff216c1b8b0e.jpg',
 			],
@@ -153,6 +223,20 @@ const plants = {
 				'Рослина віддає перевагу яскравому розсіяному світлу, але може витримувати і легке затінення.',
 			humidityLevel:
 				'Монстера полюбляє високу вологість, тому регулярне обприскування листя буде корисним.',
+			category_en: 'Decorative-deciduous',
+			name_en: 'Monstera',
+			desc_en:
+				'this is a popular ornamental plant, known for its exotic appearance and large, dissected leaves that can reach impressive sizes. Its dark green leaves have characteristic holes and torn edges, which gives it an original look. Due to its unpretentiousness and endurance, Monstera is great for growing indoors and is a favorite among interior designers.',
+			conditionsСare_en:
+				'Monstera needs bright but diffused light, can tolerate partial shade. Water the plant when the soil on top dries out, avoiding excess moisture. For better growth, provide high humidity and periodically wipe the leaves from dust. It is also important to support the plant, as it likes to climb.',
+			soilType_en:
+				'Monstera needs light, well-drained soil rich in organic matter.',
+			temperature_en:
+				'The ideal temperature for Monstera is between 18°C ​​and 27°C.',
+			lightRequiremen_ent:
+				'The plant prefers bright, diffused light, but can also tolerate light shading.',
+			humidityLevel_en:
+				'Monstera likes high humidity, so regular spraying of the leaves will be useful.',
 		},
 		9: {
 			category: 'Декоративно-листяні',
@@ -176,6 +260,20 @@ const plants = {
 				'Рослина віддає перевагу яскравому розсіяному світлу, але може витримувати легке затінення.',
 			humidityLevel:
 				'Фікус Бенжаміна Екзотіка полюбляє підвищену вологість, тому регулярне обприскування листя буде корисним.',
+			category_en: 'Decorative-deciduous',
+			name_en: 'Ficus Benjamina Exotica',
+			desc_en:
+				'this is an elegant houseplant with elegant, small, shiny leaves, which give it a delicate and luxurious look. It is known for its ability to purify the air, which is why it is popular in offices and residential premises. Ficus Benjamina Exotica is an ideal choice for creating a cozy atmosphere in the interior.',
+			conditionsСare_en:
+				'needs bright diffused light, but can also grow in partial shade. It is important to maintain uniform watering - the soil should be slightly moist, but not overmoistened. The plant is sensitive to changes in conditions, so sudden fluctuations in temperature and drafts should be avoided.',
+			soilType_en:
+				'Ficus Benjamina Exotica needs light, well-drained soil with a high organic content.',
+			temperature_en:
+				'The optimum temperature for ficus is from 18°C ​​to 24°C.',
+			lightRequirement_en:
+				'The plant prefers bright diffused light, but can withstand light shading.',
+			humidityLevel_en:
+				'Ficus Benjamina Exotica likes high humidity, so regular spraying of the leaves will be useful.',
 		},
 		10: {
 			category: 'Декоративно-листяні',
@@ -199,9 +297,23 @@ const plants = {
 				'Рослина віддає перевагу яскравому, розсіяному світлу, але може витримувати легке затінення.',
 			humidityLevel:
 				'Традесканція Білоквіткова полюбляє підвищену вологість, тому обприскування листя буде корисним.',
+			category_en: 'Decorative-deciduous',
+			name_en: 'White-flowered Tradescantia',
+			desc_en:
+				'is an unpretentious ornamental plant with delicate white flowers and long, drooping stems covered with green or striped leaves. This plant is known for its ability to grow quickly, forming dense mats or elegant cascading forms, which makes it an ideal choice for hanging pots or decorative compositions.',
+			conditionsСare_en:
+				'likes bright diffused light, but can also withstand partial shade. Watering should be regular, but not excessive - the soil should be moist, but without stagnant water. It grows well in high humidity and needs periodic pruning to maintain its shape.',
+			soilType_en:
+				'White-flowered Tradescantia requires light, well-drained soil rich in organic matter.',
+			temperature_en:
+				'The ideal temperature for Tradescantia is 18°C ​​to 24°C.',
+			lightRequirement_en:
+				'The plant prefers bright, diffused light, but can tolerate light shading.',
+			humidityLevel_en:
+				'White-flowered Tradescantia likes high humidity, so spraying the leaves will be useful.',
 		},
 	},
-	'Декоративно-квітучі': {
+	'Ornamental-flowering': {
 		11: {
 			category: 'Декоративно-квітучі',
 			id: 110,
@@ -224,6 +336,20 @@ const plants = {
 				'Рослина добре росте при яскравому розсіяному світлі, але може переносити і легке затінення.',
 			humidityLevel:
 				'Спатифілум полюбляє високу вологість, тому регулярне обприскування листя буде корисним.',
+			category_en: 'Ornamental-flowering',
+			name_en: 'Spathiphyllum',
+			desc_en:
+				'also known as "female happiness", is an evergreen houseplant with elegant white flowers and shiny dark green leaves. It not only adds beauty to the room, but also purifies the air, making it a popular choice for home and office. Spathiphyllum is known for its unpretentiousness and ability to grow even in less favorable conditions.',
+			conditionsСare_en:
+				'needs bright diffused light, but can also grow in shaded places. The plant should be watered regularly, maintaining moist soil, but not allowing water to stagnate. It also likes high humidity and needs regular spraying. Sensitive to drafts and sudden changes in temperature.',
+			soilType_en:
+				'Spathiphyllum needs light, well-drained soil enriched with organic matter.',
+			temperature_en:
+				'The ideal temperature for spathiphyllum is from 18°C ​​to 24°C.',
+			lightRequirement_en:
+				'The plant grows well in bright diffused light, but can also tolerate light shading.',
+			humidityLevel_en:
+				'Spathiphyllum likes high humidity, so regular spraying of the leaves will be useful.',
 		},
 		12: {
 			category: 'Декоративно-квітучі',
@@ -247,6 +373,20 @@ const plants = {
 				'Рослина потребує яскравого сонячного світла, від 6 до 8 годин на день.',
 			humidityLevel:
 				'Лаванда не любить високу вологість і краще росте в сухих умовах, тому надмірне поливання слід уникати.',
+			category_en: 'Ornamental-flowering',
+			name_en: 'Florium Lavender',
+			desc_en:
+				'Florium Lavender is a compact variety of lavender with intense blue-violet flowers and silver-green leaves. It is known for its pleasant aroma, which soothes and creates an atmosphere of comfort. This lavender is great for growing in the garden, on the balcony or indoors, and is also ideal for creating fragrant bouquets or decorative compositions.',
+			conditionsСare_en:
+				'Lavender needs bright sunlight and well-drained soil. Watering should be moderate, especially avoiding overwatering. This plant is drought-resistant, so it should only be watered when the soil is well dry. Lavender likes warm places and does not tolerate excessive humidity and severe frosts.',
+			soilType_en:
+				'Florium Lavender needs well-drained soil with a neutral or slightly alkaline reaction.',
+			temperature_en:
+				'The optimal temperature for lavender is from 15°C to 25°C.',
+			lightRequirement_en:
+				'The plant needs bright sunlight, from 6 to 8 hours a day.',
+			humidityLevel_en:
+				'Lavender does not like high humidity and grows better in dry conditions, so excessive watering should be avoided.',
 		},
 		13: {
 			category: 'Декоративно-квітучі',
@@ -270,6 +410,18 @@ const plants = {
 				'Рослина віддає перевагу яскравому, розсіяному світлу, але слід уникати прямих сонячних променів.',
 			humidityLevel:
 				'Азалія полюбляє високу вологість, тому регулярне обприскування листя буде корисним.',
+			category_en: 'Decorative-flowering',
+			name_en: 'Azalea Mix',
+			desc_en:
+				'Azalea Mix is ​​an elegant houseplant that is decorated with bright, lush flowers of various shades, including pink, red and white. Due to its unique shape on the stem, this plant becomes a real decoration of any interior. Azaleas are known for their beauty and elegance, but they also require attention and care.',
+			conditionsСare_en:
+				'Azalea needs bright but diffused light. It loves coolness and grows best at a temperature of +15...+20 °C. The plant should be watered regularly, maintaining soil moisture, but avoiding water stagnation. It is important to provide it with high air humidity, so spraying will be useful. After flowering, the plant should be pruned to maintain its shape.',
+			soilType_en: 'Azalea Mix needs light, acidic soil with good drainage.',
+			temperature_en: 'The optimum temperature for azalea is 15°C to 20°C.',
+			lightRequirement_en:
+				'The plant prefers bright, diffused light, but direct sunlight should be avoided.',
+			humidityLevel_en:
+				'Azalea likes high humidity, so regular spraying of the leaves will be useful.',
 		},
 		14: {
 			category: 'Декоративно-квітучі',
@@ -294,6 +446,21 @@ const plants = {
 				'Рослина віддає перевагу яскравому, розсіяному світлу, але може переносити легке затінення.',
 			humidityLevel:
 				'Гортензія полюбляє високу вологість, тому регулярне обприскування листя буде корисним.',
+			category_en: 'Ornamental-flowering',
+			name_en: 'Hydrangea Mix',
+			desc_en:
+				'Hydrangea Mix is ​​a bright houseplant with large lush flowers that can have different shades: from blue to pink and white. It is known for its luxurious shape and lush flowering, which makes it a beautiful accent in any interior. Hydrangeas are often used to create flower arrangements and bouquets.',
+			conditionsСare_en:
+				'Hydrangea needs bright but diffused light. The plant should be watered regularly, maintaining soil moisture, but avoiding water stagnation. It loves high humidity, so spraying the leaves will be useful. The optimum temperature for growth is +18...+24 °C. After flowering, it is recommended to prune the plant to maintain its shape and stimulate new growth.',
+
+			soilType_en:
+				'Hydrangea Mix needs fertile, well-drained soil with an acid or neutral reaction.',
+			temperature_en:
+				'The optimum temperature for hydrangea is from 15°C to 25°C.',
+			lightRequirement_en:
+				'The plant prefers bright, diffused light, but can tolerate light shading.',
+			humidityLevel_en:
+				'Hydrangea likes high humidity, so regular spraying of the leaves will be useful.',
 		},
 		15: {
 			category: 'Декоративно-квітучі',
@@ -318,6 +485,19 @@ const plants = {
 				'Рослина потребує яскравого, непрямого світла, але може переносити і легке затінення.',
 			humidityLevel:
 				'Карісса добре переносить низький рівень вологості, але регулярне обприскування листя може бути корисним.',
+			category_en: 'Decorative-flowering',
+			name_en: 'Carissa Balemala',
+			desc: 'Carissa Balemala is a compact houseplant, famous for its shiny dark green leaves and fragrant white flowers that turn into small red berries. This plant is not only attractive, but also useful, as its berries are edible and have a wonderful taste. Carissa is great for growing in containers and can decorate any interior.',
+			conditionsСare_en:
+				'Carissa Balemala needs bright but diffused light. The plant should be watered moderately, allowing the top layer of soil to dry out between waterings. It grows well at a temperature of +18...+25 °C and needs periodic spraying, especially in the dry season. It is also important to provide the plant with good drainage to avoid waterlogging.',
+			soilType_en:
+				'Carissa needs light, well-drained soil, with a high organic content.',
+			temperature_en:
+				'The optimum temperature for carissa is between 18°C ​​and 24°C.',
+			lightRequirement_en:
+				'The plant needs bright, indirect light, but can also tolerate light shading.',
+			humidityLevel_en:
+				'Carissa tolerates low humidity levels well, but regular spraying of the leaves can be beneficial.',
 		},
 		16: {
 			category: 'Декоративно-квітучі',
@@ -341,6 +521,20 @@ const plants = {
 				'Рослина віддає перевагу яскравому, розсіяному світлу, але слід уникати прямих сонячних променів.',
 			humidityLevel:
 				'Антуріум полюбляє високу вологість, тому регулярне обприскування листя буде корисним.',
+			category_en: 'Decorative-flowering',
+			name_en: 'Anthurium Success Red',
+			desc_en:
+				'Anthurium Success Red is a striking houseplant with bright red heart-shaped flowers and shiny green leaves. This plant is a symbol of beauty and prosperity and is often used to decorate interiors due to its exotic aesthetics. Anthurium is also famous for its ability to purify the air, making it a popular choice for homes and offices.',
+			conditionsСare_en:
+				'Anthurium Success Red needs bright but diffused light for optimal flowering. The plant should be watered regularly, but avoid overwatering; the soil should be slightly moist, but not wet. The optimal temperature for growth is +18...+28 °C, and it is also important to maintain high humidity. The plant should be fed every 4-6 weeks during the growing season.',
+			soilType_en:
+				'Anthurium Success Red requires light, well-drained soil with a high organic content.',
+			temperature_en:
+				'The optimum temperature for anthurium is from 18°C ​​to 27°C.',
+			lightRequirement_en:
+				'The plant prefers bright, diffused light, but direct sunlight should be avoided.',
+			humidityLevel_en:
+				'Anthurium likes high humidity, so regular spraying of the leaves will be useful.',
 		},
 		17: {
 			category: 'Декоративно-квітучі',
@@ -366,6 +560,20 @@ const plants = {
 				'Рослина віддає перевагу яскравому, розсіяному світлу, але слід уникати прямих сонячних променів.',
 			humidityLevel:
 				'Антуріум Black Queen полюбляє високу вологість, тому регулярне обприскування листя буде корисним.',
+			category_en: 'Decorative-flowering',
+			name_en: 'Anthurium Black Queen',
+			desc_en:
+				'Anthurium Black Queen is an exquisite houseplant, distinguished by its dark red or almost black flowers and glossy green leaves. This plant adds exoticism and elegance to any interior. Anthurium Black Queen is not only attractive, but also able to purify the air, which makes it a popular choice for home and office.',
+			conditionsСare_en:
+				'Anthurium Black Queen needs bright but diffused light for best growth and flowering. The plant should be watered regularly, observing moderation - the soil should be moist, but not wet. The optimal temperature for growth is +18...+28 °C, and it is important to maintain high humidity. Fertilizers can be applied every 4-6 weeks during the growing season to provide the plant with the nutrients it needs.',
+			soilType_en:
+				'Anthurium Black Queen requires light, well-drained soil with a high organic content.',
+			temperature_en:
+				'The optimum temperature for anthurium is between 18°C ​​and 27°C.',
+			lightRequirement_en:
+				'The plant prefers bright, diffused light, but direct sunlight should be avoided.',
+			humidityLevel_en:
+				'Anthurium Black Queen likes high humidity, so regular spraying of the leaves will be beneficial.',
 		},
 		18: {
 			category: 'Декоративно-квітучі',
@@ -389,6 +597,19 @@ const plants = {
 				'Рослина віддає перевагу яскравому, розсіяному світлу, але слід уникати прямих сонячних променів.',
 			humidityLevel:
 				'Азалія полюбляє високу вологість, тому регулярне обприскування листя буде корисним.',
+			category_en: 'Decorative-flowering',
+			name_en: 'Azalea Mix ',
+			desc_en:
+				'Azalea Mix is ​​a compact houseplant that has bright and lush flowers in various shades, such as pink, red and white. This plant is distinguished by its beauty and is an ideal choice for decorating the interior, giving it a fresh look. Azaleas are very popular due to their elegance and ability to bloom in the winter.',
+			conditionsСare_en:
+				'Azalea needs bright but diffused light for optimal growth. The plant should be watered regularly, maintaining soil moisture, but it is important to avoid waterlogging. Azalea grows best at a temperature of +15...+20 °C and needs high humidity, so spraying will be useful. After flowering, it is recommended to prune the plant to maintain its shape.',
+			soilType_en: 'Azalea Mix needs light, acidic soil with good drainage.',
+			temperature_en:
+				'The optimum temperature for azalea is from 15°C to 20°C.',
+			lightRequirement_en:
+				'The plant prefers bright, diffused light, but direct sunlight should be avoided.',
+			humidityLevel_en:
+				'Azalea likes high humidity, so regular spraying of the leaves will be useful.',
 		},
 		19: {
 			category: 'Декоративно-квітучі',
@@ -412,6 +633,20 @@ const plants = {
 				'Рослина віддає перевагу яскравому сонячному світлу, з більш ніж 6 годинами освітлення на день.',
 			humidityLevel:
 				"Хризантема не вимагає високої вологості, але регулярний полив є важливим для її здоров'я.",
+			category_en: 'Decorative-flowering',
+			name_en: 'Chrysanthemum',
+			desc_en:
+				'Chrysanthemum is a bright and vibrant houseplant, known for its variety of colors and flower shapes. This plant symbolizes joy and friendship, and is also a popular choice for decorating interiors due to its long flowering. Chrysanthemums can have flowers of various shades - from yellow to red and white, which makes them a wonderful addition to any space.',
+			conditionsСare_en:
+				'Chrysanthemum needs bright sunlight for the best flowering, but can also tolerate partial shade. The plant should be watered regularly, maintaining soil moisture, but avoiding waterlogging. The optimal temperature for growth is +15...+20 °C. After flowering, it is recommended to prune the plant to stimulate new growth and maintain its shape.',
+			soilType_en:
+				'Chrysanthemums require fertile, well-drained soil with a neutral reaction.',
+			temperature_en:
+				'The optimum temperature for chrysanthemums is between 15°C and 20°C.',
+			lightRequirement_en:
+				'The plant prefers bright sunlight, with more than 6 hours of light per day.',
+			humidityLevel_en:
+				'Chrysanthemums do not require high humidity, but regular watering is important for their health.',
 		},
 		20: {
 			category: 'Декоративно-квітучі',
@@ -436,6 +671,19 @@ const plants = {
 				'Рослина віддає перевагу яскравому сонячному світлу, з не менше ніж 6 годинами освітлення на день.',
 			humidityLevel:
 				'Троянди вимагають середнього рівня вологості, тому регулярний полив важливий, особливо в спекотні дні.',
+			category_en: 'Decorative-flowering',
+			name_en: 'Rose Mix 10x20 cm',
+			desc_en:
+				'Rose Mix 10x20 cm is a compact houseplant with bright, fragrant flowers in a variety of colors, such as red, pink, white and yellow. This plant not only decorates the interior, but also fills it with a wonderful aroma. Roses symbolize love and beauty, which makes them a popular choice for gifts and decoration.',
+			conditionsСare_en:
+				'Rose needs bright light for optimal growth and flowering. The plant should be watered regularly, maintaining soil moisture, but avoiding waterlogging. The optimal temperature for growth is +18...+24 °C. The plant also needs feeding during the growing season to provide the necessary nutrients. After flowering, it is recommended to cut off faded flowers to stimulate new flowering.',
+			soilType_en:
+				'The Mix rose requires fertile, well-drained soil with a neutral or slightly acidic reaction.',
+			temperature_en: 'The optimum temperature for roses is from 15°C to 25°C.',
+			lightRequirement_en:
+				'The plant prefers bright sunlight, with at least 6 hours of light per day.',
+			humidityLevel_en:
+				'Roses require a medium level of humidity, so regular watering is important, especially on hot days.',
 		},
 		21: {
 			category: 'Декоративно-квітучі',
@@ -460,9 +708,24 @@ const plants = {
 			humidityLevel:
 				'Пеларгонія не любить надмірну вологість, тому полив слід здійснювати помірно.',
 			status: 'Новинки',
+			category_en: 'Ornamental-flowering',
+			name_en: 'Yu-Jiga Pelargonium',
+			desc_en:
+				'Yu-Jiga Pelargonium is a bright houseplant known for its beautiful rose-like flowers and persistent fragrance. This plant adds elegance to any space with its lush and succulent foliage, as well as its luxurious blooms. Pelargonium is often used to decorate interiors, and is also suitable for growing on balconies and in gardens.',
+			conditionsСare_en:
+				'Pelargonium needs bright light for optimal growth and flowering. Water the plant moderately, allowing the soil to dry out between waterings to avoid waterlogging. The optimal temperature for growth is +18...+24 °C. Pelargonium does not like cold and drafts, so it is important to provide it with comfortable conditions. Regular feeding during the period of active growth will help maintain its health and beauty.',
+			soilType_en:
+				'Yu-Jiga Pelargonium needs light, well-drained soil enriched with organic matter.',
+			temperature_en:
+				'The optimal temperature for pelargonium is from 18°C ​​to 24°C.',
+			lightRequirement_en:
+				'The plant prefers bright, diffused light, but can also withstand light shading.',
+			humidityLevel_en:
+				'Pelargonium does not like excessive humidity, so watering should be done moderately.',
+			status_en: 'New',
 		},
 	},
-	Орхідеї: {
+	Orchids: {
 		0: {
 			category: 'Орхідеї',
 			id: 0,
@@ -487,6 +750,22 @@ const plants = {
 			humidityLevel:
 				'Дендробіум полюбляє високу вологість, тому регулярне обприскування або установка вологи в повітрі будуть корисними.',
 			status: 'Розпродаж',
+			category_en: 'Orchids',
+			name_en: 'Dendrobium',
+			desc_en:
+				'this is one of the most popular genera of orchids, with over 1,800 species. These striking plants are known for their variety of shapes, colors and sizes. They can have stems from short to long, and flowers from small to large, usually with bright and saturated colors: from white to pink, yellow, purple and even blue.',
+			conditionsСare_en:
+				'needs bright, diffused lighting and regular watering, but waterlogging should be avoided. The plant grows better in a specialized substrate for orchids, which provides good aeration of the roots. Feed during active growth with an orchid fertilizer to maintain health and abundant flowering.',
+
+			soilType_en:
+				'Dendrobiums need a light, well-drained substrate consisting of bark and peat.',
+			temperature_en:
+				'The optimum temperature for dendrobiums is between 18°C ​​and 25°C.',
+			lightRequirement_en:
+				'The plant prefers bright, diffused light, but direct sunlight should be avoided.',
+			humidityLevel_en:
+				'Dendrobiums like high humidity, so regular spraying or installing a humidifier will be beneficial.',
+			status_en: 'Sale',
 		},
 		1: {
 			category: 'Орхідеї',
@@ -512,6 +791,21 @@ const plants = {
 				'Рослина віддає перевагу яскравому, розсіяному світлу, але слід уникати прямих сонячних променів.',
 			humidityLevel:
 				'Фаленопсис полюбляє високу вологість, тому регулярне обприскування листя буде корисним.',
+			category_en: 'Orchids',
+			name_en: 'Phalaenopsis White',
+			desc_en:
+				'these are royal flowers that are very popular among flower growers. Despite the fact that the royal orchid is considered more demanding than the usual one, even a beginner can handle its care. Royal orchids are quite tall, have large flowers and long flowering, which is 1-2 months longer than that of ordinary orchids. The diameter of the flower can reach 20 cm. And the color is completely different: white, pink, spotted, striped, purple and many others. ',
+			conditionsСare_en:
+				'For long flowering, orchids need a lot of light. Ideal conditions for them are in places where the sun hits for several hours a day (morning or evening)',
+
+			soilType_en:
+				'Phalaenopsis White Royal needs a light, well-drained substrate consisting of bark, moss and perlite.',
+			temperature_en:
+				'The optimum temperature for Phalaenopsis is from 20°C to 25°C.',
+			lightRequirement_en:
+				'The plant prefers bright, diffused light, but direct sunlight should be avoided.',
+			humidityLevel_en:
+				'Phalaenopsis likes high humidity, so regular spraying of the leaves will be useful.',
 		},
 		2: {
 			category: 'Орхідеї',
@@ -536,6 +830,20 @@ const plants = {
 				'Рослина віддає перевагу яскравому, розсіяному світлу, але слід уникати прямих сонячних променів.',
 			humidityLevel:
 				'Міні орхідея полюбляє високу вологість, тому регулярне обприскування листя або використання зволожувача повітря буде корисним.',
+			category_en: 'Orchids',
+			name_en: 'Mini orchid',
+			desc_en:
+				' this is an exquisite composition of various types of miniature orchids presented in a stylish pot. These plants are distinguished by their compact size, bright colors and elegant shapes, which makes them ideal for decorating any interior. Caring for mini orchids is simple: they need bright, diffused light and moderate watering. This composition will add comfort and sophistication to your home or office! ',
+			conditionsСare_en:
+				'Mini orchid mix needs bright, diffused light, moderate watering and a specialized substrate for orchids to maintain health and flowering.',
+			soilType_en:
+				'Mini orchid mix in a pot needs a light, well-drained substrate, usually made of bark, moss and perlite.',
+			temperature_en:
+				'The optimum temperature for mini orchids is from 18°C ​​to 24°C.',
+			lightRequirement_en:
+				'The plant prefers bright, diffused light, but direct sunlight should be avoided.',
+			humidityLevel_en:
+				'The mini orchid likes high humidity, so regular spraying of the leaves or using a humidifier will be useful.',
 		},
 		51: {
 			category: 'Орхідеї',
@@ -560,6 +868,21 @@ const plants = {
 			humidityLevel:
 				'Фаленопсис Каскад полюбляє високу вологість, тому регулярне обприскування листя буде корисним.',
 			status: 'Новинки',
+			category_en: 'Orchids',
+			name_en: 'Orchid Phalaenopsis Cascade',
+			desc_en:
+				'Orchid Phalaenopsis Cascade is an elegant and unique plant with curved flower stalks that form impressive cascades of large flowers. This orchid is known for its large, bright flowers and long flowering period. Perfect for decorating any space, adding a touch of luxury and aesthetics. It is easy to care for: it requires moderate watering and bright diffused light. The Phalaenopsis Cascade orchid will be a wonderful accent in your interior.',
+			conditionsСare_en:
+				'The Phalaenopsis Cascade needs bright, diffused lighting, moderate watering and an orchid substrate to ensure its long-lasting flowering.',
+			soilType_en:
+				'The Phalaenopsis Cascade orchid needs a light, well-drained substrate consisting of bark, moss and perlite.',
+			temperature_en:
+				'The optimum temperature for the Phalaenopsis Cascade is from 20°C to 25°C.',
+			lightRequirement_en:
+				'The plant prefers bright, diffused light, but direct sunlight should be avoided.',
+			humidityLevel_en:
+				'The Phalaenopsis Cascade loves high humidity, so regular spraying of the leaves will be useful.',
+			status_en: 'New',
 		},
 		52: {
 			category: 'Орхідеї',
@@ -585,6 +908,21 @@ const plants = {
 			humidityLevel:
 				'Камбрія полюбляє високу вологість, тому регулярне обприскування листя буде корисним.',
 			status: 'Розпродаж',
+			category_en: 'Orchids',
+			name_en: 'Houseplant Cambria mix 12x60',
+			desc_en:
+				'Cambria mix is ​​an exotic houseplant that combines several varieties of orchids with exquisite flowers. It is distinguished by its unusual flower shapes and pleasant aroma, which makes it ideal for decorating modern interiors. Cambria is easy to care for, so it is suitable for both experienced and beginners in growing orchids. This plant will add charm and elegance to any room.',
+			conditionsCare_en:
+				'Cambria mix needs bright diffused light, regular but moderate watering and a special substrate for orchids to maintain health and flowering.',
+			soilType_en:
+				'Houseplant Cambria mix needs a light, well-drained substrate consisting of bark, moss and peat.',
+			temperature_en:
+				'Optimal The temperature for Cambria is between 18°C ​​and 24°C.',
+			lightRequirement_en:
+				'The plant prefers bright, diffused light, but direct sunlight should be avoided.',
+			humidityLevel_en:
+				'Cambria likes high humidity, so regular spraying of the leaves will be useful.',
+			status_en: 'Sale',
 		},
 		53: {
 			category: 'Орхідеї',
@@ -608,6 +946,20 @@ const plants = {
 				'Рослина віддає перевагу яскравому, розсіяному світлу, але слід уникати прямих сонячних променів.',
 			humidityLevel:
 				'Фаленопсіс плямистий полюбляє високу вологість, тому регулярне обприскування листя буде корисним.',
+			category_en: 'Orchids',
+			name_en: 'Phalaenopsis spotted',
+			desc_en:
+				'Phalaenopsis spotted is an extremely attractive indoor orchid with unique flowers covered with spots that create an exotic look. This orchid has a long branch with large flowers that stay on the plant for several months. It will be a wonderful decoration for any interior, giving it a special sophistication. Caring for it is simple: moderate watering and bright, but diffused light are enough.',
+			conditionsСare_en:
+				'Phalaenopsis spotted needs bright diffused lighting, regular moderate watering and a substrate for orchids, which contributes to long-term flowering.',
+			soilType_en:
+				'Phalaenopsis spotted needs a light, well-drained substrate consisting of bark, moss and perlite.',
+			temperature_en:
+				'The optimum temperature for Phalaenopsis spotted is from 20°C to 25°C.',
+			lightRequirement_en:
+				'The plant prefers bright, diffused light, but direct sunlight should be avoided.',
+			humidityLevel_en:
+				'Phalaenopsis variegated likes high humidity, so regular spraying of the leaves will be useful.',
 		},
 		54: {
 			category: 'Орхідеї',
@@ -632,6 +984,21 @@ const plants = {
 			humidityLevel:
 				'Фаленопсис полюбляє високу вологість, тому регулярне обприскування листя буде корисним.',
 			status: 'Топ продажів',
+			category_en: 'Orchids',
+			name_en: 'Phalaenopsis Orchid two branches 12/70 cm, Yellow',
+			desc_en:
+				'Yellow Phalaenopsis with two branches is a bright and elegant orchid that attracts attention with its sunny yellow flowers. The flowers are placed on two long branches, which gives the plant a luxurious look. Ideal for decorating any interior, the orchid adds a touch of warmth and elegance. It is easy to care for: it needs moderate watering and bright, diffused light. Phalaenopsis is great for both home and office.',
+			conditionsСare_en:
+				'Phalaenopsis Orchid needs bright diffused lighting, regular moderate watering and a special substrate for orchids to maintain its health and beauty.',
+			soilType_en:
+				'Phalaenopsis Orchid needs a light, well-drained substrate consisting of bark, moss and perlite.',
+			temperature_en:
+				'The optimum temperature for Phalaenopsis is between 20°C and 25°C.',
+			lightRequirement_en:
+				'The plant prefers bright, diffused light, but direct sunlight should be avoided.',
+			humidityLevel_en:
+				'Phalaenopsis likes high humidity, so regular spraying of the leaves will be useful.',
+			status_en: 'Top seller',
 		},
 		55: {
 			category: 'Орхідеї',
@@ -655,9 +1022,23 @@ const plants = {
 				'Рослина віддає перевагу яскравому, розсіяному світлу, але слід уникати прямих сонячних променів.',
 			humidityLevel:
 				'Фаленопсіс полюбляє високу вологість, тому регулярне обприскування листя буде корисним.',
+			category_en: 'Orchids',
+			name_en: 'Phalaenopsis Royal Plant',
+			desc_en:
+				'The Phalaenopsis Royal Blue is a striking single-stemmed houseplant that attracts attention with its rich blue flowers. This orchid has an elegant appearance and will become a bright accent in any interior. Phalaenopsis flowers are known for their durability and ability to bloom for a long time. Caring for it is not difficult: moderate watering and bright, diffused light are enough.',
+			conditionsСare_en:
+				'Phalaenopsis Royal Blue needs bright diffused lighting, regular moderate watering and a special substrate for orchids to provide optimal conditions for growth.',
+			soilType_en:
+				'The Phalaenopsis Royal Blue plant needs a light, well-drained substrate consisting of bark, moss and perlite.',
+			temperature_en:
+				'The optimal temperature for Phalaenopsis is from 20°C to 25°C.',
+			lightRequirement_en:
+				'The plant prefers bright, diffused light, but direct sunlight should be avoided.',
+			humidityLevel_en:
+				'Phalaenopsis likes high humidity, so regular spraying of the leaves will be useful.',
 		},
 	},
-	Сукуленти: {
+	Succulents: {
 		22: {
 			category: 'Сукуленти',
 			id: 220,
@@ -683,6 +1064,22 @@ const plants = {
 			humidityLevel:
 				'Ехінопсис не потребує високої вологості і краще росте в сухих умовах, тому надмірний полив слід уникати.',
 			status: 'Топ продажів',
+			category_en: 'Succulents',
+			name_en: 'Cactus Echinopsis Multicolored',
+			desc_en:
+				'Cactus Echinopsis Mix is ​​a compact houseplant that impresses with its bright, colorful flowers that open in summer. These cacti have characteristic rounded shapes and thick spines, which makes them attractive for collecting. Echinopsis are unpretentious plants that are great for beginners in the world of cacti.',
+			conditionsСare_en:
+				'Echinopsis needs bright sunlight for optimal growth. The cactus should be watered rarely, allowing the soil to dry completely between waterings. In winter, watering is almost completely reduced. The optimal temperature for growth is +18...+25 °C, and in winter cacti can withstand temperatures down to +10 °C. These plants also do not require feeding, but may benefit from adding fertilizer during the growing season.',
+
+			soilType_en:
+				'Echinopsis Mix Multicolor Cactus needs well-drained, light soil containing sand or perlite.',
+			temperature_en:
+				'The optimum temperature for Echinopsis is between 18°C ​​and 30°C.',
+			lightRequirement_en:
+				'The plant prefers bright sunlight, so a south-facing window is ideal.',
+			humidityLevel_en:
+				'Echinopsis does not require high humidity and grows better in dry conditions, so excessive watering should be avoided.',
+			status_en: 'Top seller',
 		},
 		23: {
 			category: 'Сукуленти',
@@ -708,6 +1105,21 @@ const plants = {
 			humidityLevel:
 				'Хавортія не потребує високої вологості, тому полив слід здійснювати помірно, уникаючи надмірного зволоження.',
 			status: 'Розпродаж',
+			category_en: 'Succulents',
+			name_en: 'Haworthia ',
+			desc_en:
+				'Haworthia is a compact succulent plant with characteristic thick, fleshy leaves that can be dark green or with white stripes. This plant is ideal for growing indoors, as it is drought-resistant and does not require complex care. Haworthia brings green accents to your interior and is a great choice for beginners in the world of indoor plants.',
+			conditionsСare_en:
+				'Haworthia needs bright but diffused light. The plant should be watered rarely, allowing the soil to dry completely between waterings. It tolerates a warm and dry environment well, so the optimal temperature for growth is +18...+24 °C. In winter, watering can be reduced to a minimum. The plant does not require frequent feeding, but you can use a cactus fertilizer during the period of active growth.',
+			soilType_en:
+				'Haworthia requires well-drained, light soil, usually with the addition of sand or perlite.',
+			temperature_en:
+				'The optimum temperature for Haworthia is from 18°C ​​to 24°C.',
+			lightRequirement_en:
+				'The plant prefers bright, indirect light, but can tolerate light shading.',
+			humidityLevel_en:
+				'Haworthia does not require high humidity, so watering should be done moderately, avoiding excessive moisture.',
+			status_en: 'Sale',
 		},
 		24: {
 			category: 'Сукуленти',
@@ -732,6 +1144,20 @@ const plants = {
 			humidityLevel:
 				'Алоє не потребує високої вологості і краще росте в сухих умовах, тому полив слід здійснювати помірно.',
 			status: 'Новинки',
+			category_en: 'Succulents',
+			name_en: 'Aloe Mix',
+			desc_en:
+				'Aloe Mix is ​​a succulent houseplant known for its succulent leaves containing beneficial substances that are often used in medicine and cosmetology. Aloe has a beautiful green color and characteristic prickly edges, which makes it an attractive element of decor. This plant is easy to care for, ideal for beginners.',
+			conditionsСare_en:
+				'Aloe needs bright light, but can also grow in partial shade. The plant should be watered rarely, allowing the soil to dry completely between waterings. The optimal temperature for growth is +20...+25 °C. In winter, watering can be reduced, as the plant enters a state of rest. Aloe does not require frequent feeding, but you can use a succulent fertilizer during the period of active growth.',
+			soilType_en:
+				'Aloe Mix needs a well-drained, light soil consisting of sand and perlite.',
+			temperature_en: 'The optimal temperature for aloe is from 20°C to 30°C.',
+			lightRequirement_en:
+				'The plant prefers bright sunlight and needs at least 6 hours of light per day.',
+			humidityLevel_en:
+				'Aloe does not require high humidity and grows better in dry conditions, so watering should be done moderately.',
+			status_en: 'New',
 		},
 		25: {
 			category: 'Сукуленти',
@@ -755,6 +1181,20 @@ const plants = {
 				'Рослина віддає перевагу яскравому сонячному світлу, тому краще розміщувати її на південному вікні.',
 			humidityLevel:
 				'Красула Овата не потребує високої вологості і краще росте в сухих умовах, тому полив слід здійснювати помірно.',
+			category_en: 'Succulents',
+			name_en: 'Succulent Crassula Ovata',
+			desc_en:
+				'Crassula Ovata, also known as the "money tree", is a popular houseplant, distinguished by its round, fleshy leaves and drought resistance. It is believed that this plant brings good luck and financial well-being, which makes it desirable for many plant lovers. Crassula has a compact shape and is well suited for growing in pots.',
+			conditionsСare_en:
+				'Crassula Ovata needs bright light, but can also tolerate partial shade. The plant should be watered moderately, allowing the soil to dry completely between waterings. The optimal temperature for growth is +18...+24 °C. In winter, watering can be reduced, as the plant enters a state of rest. Crassula does not require frequent feeding, but you can use a cactus fertilizer during active growth.',
+			soilType_en:
+				'The succulent Crassula Ovata needs well-drained, light soil enriched with sand or perlite.',
+			temperature_en:
+				'The optimum temperature for Crassula is from 18°C ​​to 25°C.',
+			lightRequirement_en:
+				'The plant prefers bright sunlight, so it is better to place it on a south-facing window.',
+			humidityLevel_en:
+				'Crassula Ovata does not require high humidity and grows better in dry conditions, so watering should be done moderately.',
 		},
 		26: {
 			category: 'Сукуленти',
@@ -780,6 +1220,21 @@ const plants = {
 			humidityLevel:
 				'Ріпсаліс полюбляє високу вологість, тому регулярне обприскування листя буде корисним.',
 			status: 'Топ продажів',
+			category_en: 'Succulents',
+			name_en: 'Rhipsalis Mix',
+			desc_en:
+				'Rhipsalis Mix is ​​a unique houseplant with long, hanging stems that belongs to the cactus family. This plant is famous for its exotic aesthetics and ability to adapt to different conditions. Rhipsalis can have different color variations, from bright green to grayish-green, and is an ideal choice for ampel compositions.',
+			conditionsСare_en:
+				'Rhipsalis needs bright, diffused light. The plant should be watered moderately, allowing the top layer of soil to dry out between waterings. The optimal temperature for growth is +18...+24 °C. In winter, watering can be reduced. Rhipsalis does not require frequent feeding, but may benefit from adding fertilizer for cacti during active growth. The plant also likes high humidity, so misting the leaves will be beneficial.',
+			soilType_en:
+				'Rhipsalis Mix needs well-drained, light soil containing organic matter such as moss and humus.',
+			temperature_en:
+				'The optimum temperature for Rhipsalis is between 18°C ​​and 24°C.',
+			lightRequirement_en:
+				'The plant prefers bright, indirect light, but can tolerate light shading.',
+			humidityLevel_en:
+				'Rhipsalis likes high humidity, so misting the leaves regularly will be beneficial.',
+			status_en: 'Top seller',
 		},
 		27: {
 			category: 'Сукуленти',
@@ -804,6 +1259,21 @@ const plants = {
 			humidityLevel:
 				'Сансевієрія не потребує високої вологості і краще росте в сухих умовах, тому полив слід здійснювати помірно.',
 			status: 'Новинки',
+			category_en: 'Succulents',
+			name_en: 'Sansevieria Cylindrica',
+			desc_en:
+				'Sansevieria Cylindrica, or "snake tongue", is a striking houseplant with upright, cylindrical leaves that can reach considerable heights. It is known for its ability to withstand a variety of growing conditions, including low light and irregular watering. Sansevieria adds elegance and a modern look to any interior.',
+			conditionsСare_en:
+				'Sansevieria needs bright but diffused light, but can also grow in low light conditions. The plant should be watered moderately, allowing the soil to dry out between waterings to avoid waterlogging. The optimum temperature for growth is +18...+25 °C. Sansevieria does not require frequent feeding, but you can use a cactus fertilizer during active growth.',
+			soilType_en:
+				'Sansevieria Cylindrica needs well-drained, light soil enriched with sand or perlite.',
+			temperature_en:
+				'The optimal temperature for Sansevieria is between 18°C ​​and 24°C.',
+			lightRequirement_en:
+				'The plant prefers bright, indirect light, but can also tolerate shade.',
+			humidityLevel_en:
+				'Sansevieria does not require high humidity and grows better in dry conditions, so watering should be done moderately.',
+			status_en: 'New',
 		},
 		29: {
 			category: 'Сукуленти',
@@ -827,9 +1297,23 @@ const plants = {
 				'Рослина віддає перевагу яскравому сонячному світлу, тому краще розміщувати її на південному вікні.',
 			humidityLevel:
 				'Ехінокактус не потребує високої вологості і краще росте в сухих умовах, тому полив слід здійснювати помірно.',
+			category_en: 'Succulents',
+			name_en: 'Cactus Echinocactus Grusonii 27x25',
+			desc_en:
+				'Cactus Echinocactus Grusonii, also known as the "golden circle", is a species of cactus characterized by large, rounded shapes and bright yellow spines. This plant impresses with its aesthetics and can become a real accent in any interior. Echinocactus Grusonii is relatively easy to care for, which makes it a popular choice for cactus lovers.',
+			conditionsСare_en:
+				'Echinocactus needs bright sunlight for optimal growth and flowering. The cactus should be watered rarely, allowing the soil to dry completely between waterings, especially in winter. The optimal temperature for growth is +18...+25 °C. In winter, the cactus can withstand lower temperatures, but not below +10 °C. This plant also does not require frequent feeding, but you can use specialized fertilizers for cacti during the period of active growth.',
+			soilType_en:
+				'The cactus Echinocactus Grusonii needs well-drained, light soil enriched with sand or perlite.',
+			temperature_en:
+				'The optimum temperature for echinocactus is from 18°C ​​to 30°C.',
+			lightRequirement_en:
+				'The plant prefers bright sunlight, so it is better to place it on a south-facing window.',
+			humidityLevel_en:
+				'Echinocactus does not require high humidity and grows better in dry conditions, so watering should be done moderately.',
 		},
 	},
-	'Цитрусові рослини': {
+	'Citrus plants': {
 		30: {
 			category: 'Цитрусові рослини',
 			id: 300,
@@ -841,7 +1325,6 @@ const plants = {
 				'https://i.pinimg.com/564x/a3/46/2d/a3462dee75d0ec3c2c90be4e05f43cb9.jpg',
 			],
 			height: 122,
-			isFlowering: true,
 			desc: 'Лимонне дерево — це унікальна кімнатна рослина, яка не тільки прикрашає ваш простір, але й може давати плоди. Ця рослина славиться своїми ароматними жовтими лимонами і красивими зеленими листям. Лимонне дерево також додає свіжість і природний шарм до інтер’єру, роблячи його чудовим вибором для тих, хто любить садівництво.',
 			conditionsСare:
 				'Лимонне дерево потребує яскравого сонячного світла, тому розмістіть його біля вікна. Поливати рослину слід регулярно, підтримуючи вологість ґрунту, але уникати застою води. Оптимальна температура для росту — +20...+25 °C. Взимку рослина може потребувати зниження температури до +15 °C. Лимонне дерево також виграє від регулярного підживлення органічними добривами під час вегетаційного періоду.',
@@ -853,6 +1336,20 @@ const plants = {
 				'Рослина віддає перевагу яскравому сонячному світлу і потребує не менше 8 годин освітлення на день.',
 			humidityLevel:
 				'Лимонне дерево полюбляє помірну вологість, тому регулярний полив та обприскування листя будуть корисними.',
+			category_en: 'Citrus plants',
+			name_en: 'Lemon Tree with Fruits',
+			desc_en:
+				'Lemon tree is a unique houseplant that not only decorates your space, but can also bear fruit. This plant is famous for its fragrant yellow lemons and beautiful green leaves. Lemon tree also adds freshness and natural charm to the interior, making it a great choice for those who love gardening.',
+			conditionsСare_en:
+				'Lemon tree needs bright sunlight, so place it near the window. The plant should be watered regularly, maintaining soil moisture, but avoiding water stagnation. The optimal temperature for growth is +20...+25 °C. In winter, the plant may need to lower the temperature to +15 °C. Lemon trees also benefit from regular fertilization with organic fertilizers during the growing season.',
+			soilType_en:
+				'A fruiting lemon tree needs well-drained, fertile soil rich in organic matter.',
+			temperature_en:
+				'The optimum temperature for a lemon tree is between 20°C and 25°C.',
+			lightRequirement_en:
+				'The plant prefers bright sunlight and needs at least 8 hours of light per day.',
+			humidityLevel_en:
+				'Lemon trees like moderate humidity, so regular watering and spraying the leaves will be beneficial.',
 		},
 
 		31: {
@@ -878,6 +1375,21 @@ const plants = {
 			humidityLevel:
 				'Лаймове дерево полюбляє помірну вологість, тому регулярний полив та обприскування листя будуть корисними.',
 			status: 'Топ продажів',
+			category_en: 'Citrus plants',
+			name_en: 'Lime Tree',
+			desc_en:
+				'The Citrus Lime tree is a wonderful houseplant that not only impresses with its decorative appearance, but also bears delicious fruits. The lime tree has bright green leaves and fragrant white flowers, which makes it popular among gardeners. This plant adds freshness and tropical charm to any interior.',
+			conditionsСare_en:
+				'The lime tree needs bright sunlight, so place it on a south or west window. The plant should be watered regularly, maintaining soil moisture, but avoiding waterlogging. The optimal temperature for growth is +20...+25 °C. In winter, the temperature may be slightly lower, around +15 °C. Lime trees also need to be fertilized with organic fertilizers during the period of active growth to ensure proper development and fruiting.',
+			soilType_en:
+				'Lime trees Citrus Lime require well-drained, fertile soil enriched with organic matter.',
+			temperature_en:
+				'The optimum temperature for a lime tree is between 20°C and 25°C.',
+			lightRequirement_en:
+				'The plant prefers bright sunlight and needs at least 8 hours of light per day.',
+			humidityLevel_en:
+				'Lime trees like moderate humidity, so regular watering and spraying the leaves will be beneficial.',
+			status_en: 'Top seller',
 		},
 		32: {
 			category: 'Цитрусові рослини',
@@ -903,6 +1415,21 @@ const plants = {
 			humidityLevel:
 				'Цісус полюбляє високу вологість, тому регулярне обприскування листя буде корисним.',
 			status: 'Розпродаж',
+			category_en: 'Citrus plants',
+			name_en: 'Cisus Mandaiana',
+			desc_en:
+				'Cisus Mandaiana is a striking ampelous plant, renowned for its decorative appearance and rapid growth. Its green foliage has a distinctive shape and creates a lush curtain, making this plant ideal for hanging pots. Cissus is an excellent choice for those who want to add a green accent to their interior.',
+			conditionsСare_en:
+				'Cissus needs bright but diffused light for optimal growth. Water the plant moderately, allowing the top layer of soil to dry out between waterings. The optimal temperature for growth is +18...+24 °C. In winter, watering can be reduced. Cissus does not require frequent feeding, but you can use liquid fertilizers for indoor plants during the period of active growth to maintain its health and beauty.',
+			soilType_en:
+				'Cissus Hanging Mandaiana needs well-drained, light soil containing organic matter and sand.',
+			temperature_en:
+				'The optimal temperature for Cissus is from 18°C ​​to 24°C.',
+			lightRequirement_en:
+				'The plant prefers bright, indirect light, but can withstand light shading.',
+			humidityLevel_en:
+				'Cissus likes high humidity, so regular spraying of the leaves will be useful.',
+			status_en: 'Sale',
 		},
 
 		33: {
@@ -928,6 +1455,21 @@ const plants = {
 			humidityLevel:
 				'Каламондін полюбляє помірну вологість, тому регулярний полив та обприскування листя будуть корисними.',
 			status: 'Новинки',
+			category_en: 'Citrus plants',
+			name_en: 'Calamondin Citrus with Fruits',
+			desc_en:
+				'Calamondin Citrus is a decorative houseplant that impresses with its small, fragrant fruits and lush greenery. This plant has a compact shape, which makes it ideal for growing in pots. Calamondin not only decorates the interior, but also bears fruits that can be used in cooking.',
+			conditionsСare_en:
+				'Calamondin needs bright, diffused light, so place it near a window. The plant should be watered regularly, maintaining soil moisture, but avoiding water stagnation. The optimal temperature for growth is +20...+25 °C. In winter, the plant can withstand a slightly lower temperature, about +15 °C. To ensure proper development and fruiting, Calamondin requires regular fertilizing with organic fertilizers during the period of active growth.',
+			soilType_en:
+				'Calamondin citrus on a trunk with fruits requires well-drained, fertile soil enriched with organic matter.',
+			temperature_en:
+				'The optimum temperature for Calamondin is from 20°C to 25°C.',
+			lightRequirement_en:
+				'The plant prefers bright sunlight and needs at least 8 hours of light per day.',
+			humidityLevel_en:
+				'Calamondin likes moderate humidity, so regular watering and spraying the leaves will be useful.',
+			status_en: 'New',
 		},
 		34: {
 			category: 'Цитрусові рослини',
@@ -953,11 +1495,26 @@ const plants = {
 			humidityLevel:
 				'Мандарин полюбляє помірну вологість, тому регулярний полив та обприскування листя будуть корисними.',
 			status: 'Новинки',
+			category_en: 'Citrus plants',
+			name_en: 'Citrus Mandarin',
+			desc_en:
+				'Citrus Mandarin is a popular houseplant that not only decorates your space, but can also bear delicious fruit. The tangerine tree has beautiful, dark green leaves and fragrant white flowers, making it a great accent in any interior. This plant is also known for its delicious, juicy fruits that delight with their taste.',
+			conditionsСare_en:
+				'Mandarin needs bright, sunny light, so place it on a south or west window. The plant should be watered regularly, maintaining soil moisture, but avoiding waterlogging. The optimal temperature for growth is +20...+25 °C. In winter, the temperature may be slightly lower, around +15 °C. For active growth and fruiting, tangerine requires regular fertilizing with organic fertilizers.',
+			soilType_en:
+				'Citrus Mandarin needs well-drained, fertile soil enriched with organic matter.',
+			temperature_en:
+				'The optimum temperature for tangerine is from 20°C to 25°C.',
+			lightRequirement_en:
+				'The plant prefers bright sunlight and needs at least 8 hours of light per day.',
+			humidityLevel_en:
+				'Tangerine likes moderate humidity, so regular watering and spraying the leaves will be useful.',
+			status_en: 'New',
 		},
 	},
-	'Екзотичні кімнатні рослини': {
+	'Exotic plants': {
 		60: {
-			category: 'Екзотичні кімнатні рослини',
+			category: 'Екзотичні рослини',
 			id: 600,
 			name: 'Банан кімнатний ',
 			price: 1500,
@@ -978,9 +1535,23 @@ const plants = {
 				'Рослина віддає перевагу яскравому, непрямому світлу, але може переносити легке затінення.',
 			humidityLevel:
 				'Кімнатний банан полюбляє високу вологість, тому регулярне обприскування листя та підтримання вологості повітря будуть корисними.',
+			category_en: 'Exotic plants',
+			name_en: 'Indoor banana ',
+			desc_en:
+				'Indoor banana is a compact plant that is distinguished by its small size and attractive appearance. This fruit banana is ideal for home cultivation, because with proper care it can produce small but tasty fruits. The plant has green leaves that add freshness to your interior. Caring for it is not difficult: you need to provide sufficient lighting and regular watering.',
+			conditionsСare_en:
+				'Indoor banana needs bright, diffused light, moderate watering and a fertile substrate for optimal growth and development.',
+			soilType_en:
+				'Indoor banana needs well-drained, fertile soil enriched with organic matter.',
+			temperature_en:
+				'The optimal temperature for indoor banana is from 22°C to 28°C.',
+			lightRequirement_en:
+				'The plant prefers bright, indirect light, but can tolerate light shading.',
+			humidityLevel_en:
+				'The indoor banana likes high humidity, so regular spraying of the leaves and maintaining air humidity will be useful.',
 		},
 		61: {
-			category: 'Екзотичні кімнатні рослини',
+			category: 'Екзотичні рослини',
 			id: 610,
 			name: 'Мірт домашній Гостролистий',
 			price: 1800,
@@ -1000,9 +1571,23 @@ const plants = {
 				'Рослина віддає перевагу яскравому, непрямому світлу, але може витримувати легке затінення.',
 			humidityLevel:
 				'Мірт полюбляє помірну вологість, тому регулярне обприскування листя буде корисним.',
+			category_en: 'Exotic plants',
+			name_en: 'Myrtle, Spicy',
+			desc_en:
+				'Myrtle, Spicy is an elegant houseplant, known for its fragrant leaves and elegant flowers. This plant not only decorates the interior, but also has useful properties, because myrtle is often used in aromatherapy. Spicy myrtle is distinguished by dense, dark green leaves and can grow up to 30 cm in height. Care for it includes regular watering and bright, diffused lighting.',
+			conditionsСare_en:
+				'Myrtle, Spicy needs bright, diffused light, moderate watering and a fertile substrate to maintain its health and beauty.',
+			soilType_en:
+				'Myrtle, Spicy needs well-drained, light soil enriched with organic matter.',
+			temperature_en:
+				'The optimum temperature for myrtle is from 15°C to 25°C.',
+			lightRequirement_en:
+				'The plant prefers bright, indirect light, but can tolerate light shade.',
+			humidityLevel_en:
+				'Myrtle likes moderate humidity, so regular spraying of the leaves will be beneficial.',
 		},
 		62: {
-			category: 'Екзотичні кімнатні рослини',
+			category: 'Екзотичні рослини',
 			id: 620,
 			name: 'Ананас Вікторія до 10 см',
 			price: 1200,
@@ -1023,9 +1608,23 @@ const plants = {
 				'Рослина віддає перевагу яскравому сонячному світлу і потребує не менше 6 годин освітлення на день.',
 			humidityLevel:
 				'Ананас полюбляє високу вологість, тому регулярне обприскування листя та підтримання вологості повітря будуть корисними.',
+			category_en: 'Exotic plants',
+			name_en: 'Victoria pineapple up to 10 cm',
+			desc_en:
+				'Victoria pineapple is a compact houseplant known for its attractive appearance and delicious fruits. This plant reaches a height of up to 10 cm and has bright green leaves, which creates an exotic atmosphere in your home. With proper care, pineapple can produce small fruits, which is a great advantage for lovers of indoor plants. Victoria pineapple care includes regular watering and bright, diffused light.',
+			conditionsСare_en:
+				'Victoria pineapple requires bright, diffused light, moderate watering and a well-drained substrate to maintain the health of the plant.',
+			soilType_en:
+				'Victoria pineapple requires well-drained, light soil enriched with organic matter.',
+			temperature_en:
+				'The optimum temperature for pineapple is from 20°C to 30°C.',
+			lightRequirement_en:
+				'The plant prefers bright sunlight and needs at least 6 hours of light per day.',
+			humidityLevel_en:
+				'Pineapple loves high humidity, so regular spraying of the leaves and maintaining air humidity will be useful.',
 		},
 		63: {
-			category: 'Екзотичні кімнатні рослини',
+			category: 'Екзотичні рослини',
 			id: 630,
 			name: 'Лімонелла сорт Пурш',
 			price: 1600,
@@ -1046,9 +1645,23 @@ const plants = {
 				'Рослина віддає перевагу яскравому сонячному світлу і потребує не менше 8 годин освітлення на день.',
 			humidityLevel:
 				'Лімонелла полюбляє помірну вологість, тому регулярний полив та обприскування листя будуть корисними.',
+			category_en: 'Exotic houseplants',
+			name_en: 'Limonella Pursch',
+			desc_en:
+				'Limonella Pursch is a compact houseplant known for its citrus scent and small size, ranging from 11 to 20 cm. This plant has green leaves and small flowers that can produce delicious fruits. Limonella is a great choice for those who want to have a fresh citrus scent in the home, as well as enjoy natural fruits. Care includes bright, diffused light and moderate watering.',
+			conditionsСare_en:
+				'Limonella variety Pursha needs bright, diffused light, moderate watering and a fertile substrate to ensure healthy growth and fruiting.',
+			soilType_en:
+				'Limonella variety Pursha needs well-drained, fertile soil enriched with organic matter.',
+			temperature_en:
+				'The optimum temperature for limonella is from 20°C to 25°C.',
+			lightRequirement_en:
+				'The plant prefers bright sunlight and needs at least 8 hours of light per day.',
+			humidityLevel_en:
+				'Limonella likes moderate humidity, so regular watering and spraying the leaves will be useful.',
 		},
 		64: {
-			category: 'Екзотичні кімнатні рослини',
+			category: 'Екзотичні рослини',
 			id: 640,
 			name: 'Фейхоа Звичайний 21-30 см',
 			price: 1900,
@@ -1069,9 +1682,23 @@ const plants = {
 				'Рослина віддає перевагу яскравому сонячному світлу і потребує не менше 6 годин освітлення на день.',
 			humidityLevel:
 				'Фейхоа полюбляє помірну вологість, тому регулярний полив та обприскування листя будуть корисними.',
+			category_en: 'Exotic plants',
+			name_en: 'Feijoa Common 21-30 cm',
+			desc_en:
+				'Feijoa Common is an ornamental houseplant with attractive green leaves and white flowers that bloom in spring. The plant reaches a height of 21 to 30 cm and is known for its delicious fruits, which have a unique aroma and taste. Feijoa is an ideal choice for indoor cultivation, because with proper care it can bear fruit. Care for this plant includes bright, diffused light and moderate watering.',
+			conditionsСare_en:
+				'Feijoa Common needs bright, diffused light, regular moderate watering and a fertile substrate for optimal growth and fruiting.',
+			soilType_en:
+				'Feijoa Common needs well-drained, fertile soil enriched with organic matter.',
+			temperature_en:
+				'The optimal temperature for feijoa is from 15°C to 25°C.',
+			lightRequirement_en:
+				'The plant prefers bright sunlight and needs at least 6 hours of light per day.',
+			humidityLevel_en:
+				'Feijoa likes moderate humidity, so regular watering and spraying the leaves will be useful.',
 		},
 		65: {
-			category: 'Екзотичні кімнатні рослини',
+			category: 'Екзотичні рослини',
 			id: 650,
 			name: 'Розмарин',
 			price: 1200,
@@ -1093,9 +1720,24 @@ const plants = {
 			humidityLevel:
 				'Розмарин не потребує високої вологості і краще росте в сухих умовах, тому полив слід здійснювати помірно.',
 			status: 'Новинки',
+			category_en: 'Exotic plants',
+			name_en: 'Rosemary',
+			desc_en:
+				'Rosemary is an aromatic houseplant that grows 11 to 20 cm tall, known for its bright flavor and aroma, making it popular in cooking. The plant has narrow green leaves and can bloom with small blue or purple flowers. Rosemary is a great addition to any interior, adding freshness and a natural look. Rosemary care is simple: it needs bright, sunlight and moderate watering.',
+			conditionsСare_en:
+				'Rosemary needs bright sunlight, moderate watering and a well-drained substrate to ensure healthy growth.',
+			soilType_en:
+				'Rosemary needs well-drained, light soil containing sandy or gravelly components.',
+			temperature_en:
+				'The optimal temperature for rosemary is between 18°C ​​and 24°C.',
+			lightRequirement_en:
+				'Plant prefers bright sunlight and needs at least 6 hours of light per day.',
+			humidityLevel_en:
+				'Rosemary does not need high humidity and grows better in dry conditions, so watering should be done moderately.',
+			status_en: 'New',
 		},
 	},
-	Флораріуми: {
+	Florariums: {
 		70: {
 			category: 'Флораріуми',
 			id: 700,
@@ -1120,6 +1762,21 @@ const plants = {
 			humidityLevel:
 				'Орхідея полюбляє високу вологість, тому регулярне обприскування листя та підтримання вологості повітря будуть корисними.',
 			status: 'Топ продажів',
+			category_en: 'Florariums',
+			name_en: 'Florarium with orchid',
+			desc_en:
+				'Florarium with orchid in a dome Krasunya is an elegant composition that combines nature and modern design. At 40 cm high, this florarium contains a bright orchid that attracts attention with its luxurious flowers. The dome shape creates optimal conditions for the plant to grow, protecting it from external influences. It is an ideal choice for decorating a home or office, adding a touch of elegance and style. Caring for a florarium consists in providing bright, diffused light and regular watering.',
+			conditionsСare_en:
+				'Florarium with orchid needs bright, diffused lighting, moderate watering and careful humidity control to maintain the health of the plant.',
+			soilType_en:
+				'Florarium with orchid in a dome needs a special substrate for orchids that provides good drainage and air permeability.',
+			temperature_en:
+				'The optimum temperature for orchids is from 20°C to 25°C.',
+			lightRequirement_en:
+				'The plant prefers bright, indirect light, so it is recommended to place the florarium in a place with good lighting.',
+			humidityLevel_en:
+				'The orchid loves high humidity, so regular spraying of the leaves and maintaining air humidity will be useful.',
+			status_en: 'Top seller',
 		},
 		71: {
 			category: 'Флораріуми',
@@ -1143,6 +1800,20 @@ const plants = {
 				'Рослина віддає перевагу яскравому, непрямому світлу, тому краще розміщувати флораріум на місці з хорошим освітленням.',
 			humidityLevel:
 				'Бонсай полюбляє помірну вологість, тому регулярне обприскування листя та контроль за вологістю повітря будуть корисними.',
+			category_en: 'Florariums',
+			name_en: 'Florarium with Bonsai tree',
+			desc_en:
+				'The Magic Gardens Bonsai tree florarium is a stylish and unique composition measuring 25x12 cm, which will be perfect for any interior. This Bonsai tree, grown in a special florarium, adds a touch of tranquility and natural beauty to your space. Bonsai trees are known for their aesthetic appeal and require minimal care, which makes them an ideal choice for busy people. Florarium care consists of providing bright, diffused light and moderate watering.',
+			conditionsСare_en:
+				'The Bonsai tree florarium needs bright, diffused light, moderate watering and good drainage to maintain the health of the plant.',
+			soilType_en:
+				'The Bonsai tree florarium needs well-drained soil enriched with organic matter, which provides good aeration roots.',
+			temperature_en:
+				'The optimum temperature for bonsai is from 18°C ​​to 24°C.',
+			lightRequirement_en:
+				'The plant prefers bright, indirect light, so it is better to place the florarium in a place with good lighting.',
+			humidityLevel_en:
+				'Bonsai likes moderate humidity, so regular spraying of the leaves and monitoring the humidity of the air will be useful.',
 		},
 		72: {
 			category: 'Флораріуми',
@@ -1167,6 +1838,20 @@ const plants = {
 				'Рослина віддає перевагу яскравому сонячному світлу і потребує не менше 6 годин освітлення на день.',
 			humidityLevel:
 				'Сукуленти не потребують високої вологості і краще ростуть в сухих умовах, тому полив слід здійснювати помірно.',
+			category_en: 'Florariums',
+			name_en: 'Florarium with succulents',
+			desc_en:
+				'Florarium with succulents and imitation of a pond is a compact composition of 10 cm in height, which brings elements of nature into your home. Succulents, known for their endurance and low maintenance requirements, combine perfectly with imitation of a pond, creating a stylish and calming look. This plant is ideal for those who want to add greenery to the interior without unnecessary worries. Care for a florarium involves bright, diffused light and moderate watering.',
+			conditionsСare_en:
+				'Florarium with succulents needs bright, diffused light, moderate watering and drainage to ensure the health of the plants.',
+			soilType_en:
+				'Florarium with succulents needs well-drained soil, enriched with sand or perlite to prevent waterlogging.',
+			temperature_en:
+				'The optimum temperature for succulents is between 20°C and 30°C.',
+			lightRequirement_en:
+				'The plant prefers bright sunlight and needs at least 6 hours of light per day.',
+			humidityLevel_en:
+				'Succulents do not require high humidity and grow better in dry conditions, so watering should be done moderately.',
 		},
 		73: {
 			category: 'Флораріуми',
@@ -1192,6 +1877,21 @@ const plants = {
 			humidityLevel:
 				'Орхідея полюбляє високу вологість, тому регулярне обприскування листя та підтримання вологості повітря будуть корисними.',
 			status: 'Топ продажів',
+			category_en: 'Florariums',
+			name_en: 'Florarium with orchid',
+			desc_en:
+				'Florarium with orchid in a dome Krasunya is an elegant composition that combines the beauty of an orchid and modern design. At 40 cm high, this florarium contains a bright orchid that attracts attention with its luxurious flowers. The dome shape provides optimal conditions for the plant to grow, protecting it from external influences. This is an ideal choice for decorating your home or office, adding a touch of elegance and style. Florarium care includes bright, diffused light and moderate watering.',
+			conditionsСare_en:
+				'An orchid florarium requires bright, diffused light, moderate watering and careful humidity control to maintain the health of the plant.',
+			soilType_en:
+				'An orchid florarium in a dome requires a special orchid substrate that provides good drainage and air permeability.',
+			temperature_en:
+				'The optimum temperature for an orchid is from 20°C to 25°C.',
+			lightRequirement_en:
+				'The plant prefers bright, indirect light, so it is recommended to place the florarium in a place with good lighting.',
+			humidityLevel_en:
+				'Orchids love high humidity, so regular spraying of the leaves and maintaining air humidity will be useful.',
+			status_en: 'Top seller',
 		},
 		74: {
 			category: 'Флораріуми',
@@ -1216,6 +1916,20 @@ const plants = {
 				'Рослини віддають перевагу яскравому, непрямому світлу, тому рекомендується розміщувати флораріум на місці з хорошим освітленням.',
 			humidityLevel:
 				'Міні-флораріум потребує помірної вологості, тому регулярне обприскування листя та контроль за вологістю повітря будуть корисними.',
+			category_en: 'Florariums',
+			name_en: 'Mini Florarium Drop',
+			desc_en:
+				'Mini Florarium Drop is a compact and stylish arrangement measuring 9x9 cm, ideal for decorating your space. This mini florarium contains a variety of succulents or small plants that require minimal care. Its unique shape resembles a drop, adding a touch of elegance. It is an ideal choice for a table or windowsill where the plants can receive enough light. Mini florarium care involves bright, diffused light and moderate watering.',
+			conditionsСare_en:
+				'Mini florarium Kraplya needs bright, diffused light, moderate watering and drainage for healthy plant growth.',
+			soilType_en:
+				'Mini florarium Kraplya needs well-drained soil enriched with perlite or sand to ensure aeration of the roots.',
+			temperature_en:
+				'The optimum temperature for plants in a florarium is from 18°C ​​to 24°C.',
+			lightRequirement_en:
+				'Plants prefer bright, indirect light, so it is recommended to place the florarium in a place with good lighting.',
+			humidityLevel_en:
+				'Mini florarium needs moderate humidity, so regular spraying of the leaves and monitoring of air humidity will be useful.',
 		},
 		75: {
 			category: 'Флораріуми',
@@ -1240,9 +1954,23 @@ const plants = {
 				'Рослина віддає перевагу яскравому, непрямому світлу, тому флораріум слід розміщувати на місці з добрим освітленням.',
 			humidityLevel:
 				'Орхідея полюбляє високу вологість, тому регулярне обприскування листя та підтримання вологості повітря буде корисним.',
+			category_en: 'Florariums',
+			name_en: 'Orchid florarium',
+			desc_en:
+				'Orchid florarium is a luxurious composition that will become a bright accent in your interior. At 52 cm high, this florarium contains an elegant orchid that attracts attention with its bright flowers and graceful shapes. The spacious dome design provides optimal conditions for the plant to grow, creating the perfect microclimate. This is a great choice for those looking for a stylish element of decor for their home or office. Florarium care includes bright, diffused light and regular moderate watering.',
+			conditionsСare_en:
+				'Orchid florarium needs bright, diffused light, moderate watering and humidity control to maintain the health of the plant.',
+			soilType_en:
+				'Orchid florarium needs a special substrate for orchids that provides good drainage and air permeability.',
+			temperature_en:
+				'The optimum temperature for orchids is between 20°C and 25°C.',
+			lightRequirement_en:
+				'The plant prefers bright, indirect light, so the florarium should be placed in a place with good lighting.',
+			humidityLevel_en:
+				'The orchid likes high humidity, so regularly spraying the leaves and maintaining air humidity will be useful.',
 		},
 	},
-	Бонсай: {
+	Bonsai: {
 		35: {
 			category: 'Бонсай',
 			id: 350,
@@ -1267,6 +1995,21 @@ const plants = {
 			humidityLevel:
 				'Бонсай з стабілізованими рослинами не потребує високої вологості, але регулярне обприскування може покращити загальний стан рослин.',
 			status: 'Топ продажів',
+			category_en: 'Bonsai',
+			name_en: 'Bonsai on stone',
+			desc_en:
+				'Bonsai on stone is a unique composition of stabilized plants, which combines natural beauty and modern design solutions. Stabilized plants do not require watering and care, maintaining their appearance for a long time. This bonsai is a stylish decorative decoration for your home or office, creating an atmosphere of peace and harmony.',
+			conditionsСare_en:
+				'Since the plants are stabilized, they do not require watering, lighting or fertilizers. They should be kept away from direct sunlight and not exposed to high humidity. The ideal temperature for storing stabilized plants is room temperature, from +18 to +24 °C. This composition is completely autonomous and does not require active care.',
+			soilType_en:
+				'The Magic Gardens rock bonsai requires a special bonsai substrate that provides good root aeration and drainage.',
+			temperature_en:
+				'The optimal temperature for bonsai is between 18°C ​​and 24°C.',
+			lightRequirement_en:
+				'The plant prefers bright, indirect light, so it is recommended to place the bonsai in a place with good lighting.',
+			humidityLevel_en:
+				'Bonsai with stabilized plants do not require high humidity, but regular spraying can improve the overall condition of the plants.',
+			status_en: 'Top seller',
 		},
 
 		36: {
@@ -1293,6 +2036,21 @@ const plants = {
 			humidityLevel:
 				'Бонсай полюбляє помірну вологість, тому регулярне обприскування листя та контроль за вологістю повітря будуть корисними.',
 			status: 'Розпродаж',
+			category_en: 'Bonsai',
+			name_en: 'Bonsai over a waterfall',
+			desc_en:
+				'Bonsai over a waterfall is a spectacular composition that combines the beauty of stabilized plants and elements of a waterfall. This decorative plant creates an atmosphere of peace and harmony, making any space more comfortable. Thanks to stabilized plants, bonsai retains its natural appearance without the need for constant care.',
+			conditionsСare_en:
+				'Stabilized plants do not require watering, light or fertilizers. They should be stored indoors at room temperature, avoiding direct sunlight and high humidity. The optimal temperature for storing the composition is from +18 to +24 °C. This makes bonsai easy to care for, making it a great choice for any interior.',
+			soilType_en:
+				'The Magic Garden Waterfall Bonsai requires light, well-drained soil that allows water to easily pass through the roots.',
+			temperature_en:
+				'The optimum temperature for bonsai is between 18°C ​​and 24°C.',
+			lightRequirement_en:
+				'The plant prefers bright, indirect light, so it is recommended to place the bonsai in a well-lit area.',
+			humidityLevel_en:
+				'Bonsai likes moderate humidity, so regular spraying of the leaves and monitoring the humidity of the air will be beneficial.',
+			status_en: 'Sale',
 		},
 		37: {
 			category: 'Бонсай',
@@ -1318,6 +2076,20 @@ const plants = {
 			humidityLevel:
 				'Фікус Бонсай Мікрокарпа полюбляє підвищену вологість, тому регулярне обприскування листя буде корисним.',
 			status: 'Новинки',
+			category_en: 'Bonsai',
+			name_en: 'Ficus Bonsai Microcarpa',
+			desc_en:
+				'Ficus Bonsai Microcarpa is an elegant and stylish houseplant, famous for its small, glossy leaves and characteristic trunk shape. This plant is ideal for creating bonsai compositions due to its ability to be easily shaped and pruned. Ficus Microcarpa will add sophistication and natural beauty to any interior.',
+			conditionsСare_en:
+				'Ficus Microcarpa needs bright, diffused light, but can also withstand partial shade. The plant should be watered moderately, allowing the top layer of soil to dry out between waterings. The optimal temperature for growth is +18...+24 °C. In winter, cold drafts should be avoided and the plant should be provided with sufficient humidity. Regular fertilization with organic fertilizers promotes healthy growth and development of the plant.',
+			soilType_en:
+				'Ficus Bonsai Microcarpa needs well-drained, light soil enriched with organic matter.',
+			temperature_en: 'The optimum temperature for ficus is from 20°C to 26°C.',
+			lightRequirement_en:
+				'The plant prefers bright, indirect light, although it can withstand light shading.',
+			humidityLevel_en:
+				'Ficus Bonsai Microcarpa likes high humidity, so regular spraying of the leaves will be useful.',
+			status_en: 'New',
 		},
 		38: {
 			category: 'Бонсай',
@@ -1341,6 +2113,20 @@ const plants = {
 				'Рослина віддає перевагу яскравому, непрямому світлу, тому рекомендується розміщувати бонсай на місці з хорошим освітленням.',
 			humidityLevel:
 				'Бонсай полюбляє помірну вологість, тому регулярне обприскування листя та контроль за вологістю повітря будуть корисними.',
+			category_en: 'Bonsai',
+			name_en: 'Bonsai Magic Gardens',
+			desc_en:
+				'Bonsai Magic Gardens is a stylish and elegant composition that will add sophistication to any interior. Thanks to its compact shape and natural appearance, this bonsai will be a great accent on a table or windowsill. The plant requires minimal care, which makes it an ideal choice for busy people.',
+			conditionsСare_en:
+				'This bonsai does not require watering, as it is made from stabilized plants. It is recommended to keep it in a room with room temperature, avoiding direct sunlight and high humidity. The optimal temperature for storing the composition is from +18 to +24 °C. This makes bonsai easy to care for and an ideal choice for any space.',
+			soilType_en:
+				'Magic Gardens bonsai requires light, well-drained soil rich in organic matter.',
+			temperature_en:
+				'The optimum temperature for bonsai is between 18°C ​​and 24°C.',
+			lightRequirement_en:
+				'The plant prefers bright, indirect light, so it is recommended to place the bonsai in a well-lit area.',
+			humidityLevel_en:
+				'Bonsai likes moderate humidity, so regular spraying of the leaves and monitoring the humidity of the air will be useful.',
 		},
 		39: {
 			category: 'Бонсай',
@@ -1365,6 +2151,20 @@ const plants = {
 				'Рослина віддає перевагу яскравому, непрямому світлу, тому рекомендується розміщувати мосаріум на місці з хорошим освітленням.',
 			humidityLevel:
 				'Бонсай зі стабілізованими рослинами не потребує високої вологості, але регулярне обприскування може покращити загальний стан рослин.',
+			category_en: 'Bonsai',
+			name_en: 'Mosarium Bonsai',
+			desc_en:
+				'Mosarium Bonsai is a striking composition that combines stabilized plants in an elegant design. This plant creates a cozy atmosphere in any interior, giving it a touch of naturalness and aesthetics. Thanks to stabilized plants, bonsai retains its appearance without the need for regular care.',
+			conditionsСare_en:
+				'Stabilized plants do not require watering, light or fertilizers. It is recommended to keep the mosarium at room temperature, avoiding direct sunlight and high humidity. The ideal temperature for storing the composition is from +18 to +24 °C. This makes the Mosarium easy to maintain and ideal for any space.',
+			soilType_en:
+				"The Mosarium Bonsai with Stabilized Plants Emperor's Garden requires a special substrate for bonsai, which provides good drainage and aeration of the roots.",
+			temperature_en:
+				'The optimal temperature for bonsai is between 18°C ​​and 24°C.',
+			lightRequirement_en:
+				'The plant prefers bright, indirect light, so it is recommended to place the Mosarium in a place with good lighting.',
+			humidityLevel_en:
+				'Bonsai with stabilized plants does not require high humidity, but regular spraying can improve the overall condition of the plants.',
 		},
 		40: {
 			category: 'Бонсай',
@@ -1390,6 +2190,21 @@ const plants = {
 			humidityLevel:
 				'Бонсай в банці потребує помірної вологості, тому регулярне обприскування листя та контроль за вологістю повітря допоможуть підтримати здоровий стан рослини.',
 			status: 'Топ продажів',
+			category_en: 'Bonsai',
+			name_en: 'Bonsai in a Magic jar',
+			desc_en:
+				'Bonsai in a Magic jar is a unique decorative composition that combines the elegance of a bonsai and the style of a jar. This plant will be a wonderful accent in your interior, adding a touch of naturalness and comfort. Thanks to stabilized plants, bonsai retains its appearance without the need for regular care.',
+			conditionsСare_en:
+				'Stabilized plants do not require watering, light or fertilizers. It is recommended to place bonsai in a room with normal temperature, avoiding direct sunlight and high humidity. The ideal temperature for storing the composition is from +18 to +24 °C. This makes bonsai easy to care for and an ideal choice for any space.',
+			soilType_en:
+				'Magic Gardens potted bonsai requires a well-drained bonsai substrate that provides the roots with enough air.',
+			temperature_en:
+				'The optimum temperature for bonsai is between 18°C ​​and 24°C.',
+			lightRequirement_en:
+				'The plant requires bright, indirect light, so a location with good lighting will be optimal.',
+			humidityLevel_en:
+				"Potted bonsai requires moderate humidity, so regular spraying of the leaves and monitoring the humidity of the air will help maintain the plant's healthy condition.",
+			status_en: 'Top seller',
 		},
 	},
 };
@@ -1446,6 +2261,6 @@ app.get('/plants/categories', (req, res) => {
 	res.json(categories);
 });
 // Запуск сервера
-app.listen(port, () => {
-	console.log(`Server running at http://localhost:${port}`);
+app.listen(process.env.PORT || 3000, () => {
+	console.log('Сервер працює');
 });
