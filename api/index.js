@@ -1,10 +1,11 @@
 const express = require('express');
 const cors = require('cors'); // Імпортуємо cors
 const app = express();
-const port = process.env.PORT || 3000;
 
 const corsOptions = {
-	origin: 'http://localhost:5173',
+	origin: 'https://home-plants-phi.vercel.app', // Замість цього ви можете використовувати список доменів
+	methods: 'GET,POST', // Якщо потрібно
+	allowedHeaders: 'Content-Type,Authorization', //
 };
 
 app.use(cors(corsOptions)); // Додаємо middleware для CORS
@@ -2259,6 +2260,6 @@ app.get('/plants/categories', (req, res) => {
 	res.json(categories);
 });
 // Запуск сервера
-app.listen(port, () => {
-	console.log(`Server running at http://localhost:${port}`);
+app.listen(process.env.PORT || 3000, () => {
+	console.log('Сервер працює');
 });
