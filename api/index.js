@@ -4,9 +4,10 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 const corsOptions = {
-	origin: 'http://localhost:5173',
+	origin: ['http://localhost:5173', 'https://home-plants-phi.vercel.app'], // Дозволені джерела
+	methods: 'GET,POST',
+	allowedHeaders: 'Content-Type,Authorization',
 };
-
 app.use(cors(corsOptions)); // Додаємо middleware для CORS
 app.use(express.json());
 
