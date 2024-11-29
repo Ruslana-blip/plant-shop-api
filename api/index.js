@@ -1127,7 +1127,7 @@ const plants = {
 			name: 'Алоє Мікс',
 			price: 500,
 			img: [
-				'https://mrsad.ru/wp-content/uploads/2015/08/000015-e1440069689212-600x455.jpg',
+				'https://i.pinimg.com/736x/0e/fc/9b/0efc9be6472b86662759ed038059ec17.jpg',
 				'https://i.pinimg.com/736x/5b/48/f6/5b48f657740a762334d2476986cfead6.jpg',
 				'https://i.pinimg.com/564x/d2/74/7b/d2747b3b847205fd30cbdf6a68c668a1.jpg',
 			],
@@ -1143,6 +1143,7 @@ const plants = {
 				'Рослина віддає перевагу яскравому сонячному світлу і потребує щонайменше 6 годин освітлення на день.',
 			humidityLevel:
 				'Алоє не потребує високої вологості і краще росте в сухих умовах, тому полив слід здійснювати помірно.',
+			status: 'Новинки',
 			category_en: 'Succulents',
 			name_en: 'Aloe Mix',
 			desc_en:
@@ -1156,6 +1157,7 @@ const plants = {
 				'The plant prefers bright sunlight and needs at least 6 hours of light per day.',
 			humidityLevel_en:
 				'Aloe does not require high humidity and grows better in dry conditions, so watering should be done moderately.',
+			status_en: 'New',
 		},
 		25: {
 			category: 'Сукуленти',
@@ -1179,7 +1181,6 @@ const plants = {
 				'Рослина віддає перевагу яскравому сонячному світлу, тому краще розміщувати її на південному вікні.',
 			humidityLevel:
 				'Красула Овата не потребує високої вологості і краще росте в сухих умовах, тому полив слід здійснювати помірно.',
-			status: 'Новинки',
 			category_en: 'Succulents',
 			name_en: 'Succulent Crassula Ovata',
 			desc_en:
@@ -1194,7 +1195,6 @@ const plants = {
 				'The plant prefers bright sunlight, so it is better to place it on a south-facing window.',
 			humidityLevel_en:
 				'Crassula Ovata does not require high humidity and grows better in dry conditions, so watering should be done moderately.',
-			status_en: 'New',
 		},
 		26: {
 			category: 'Сукуленти',
