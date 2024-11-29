@@ -1143,7 +1143,6 @@ const plants = {
 				'Рослина віддає перевагу яскравому сонячному світлу і потребує щонайменше 6 годин освітлення на день.',
 			humidityLevel:
 				'Алоє не потребує високої вологості і краще росте в сухих умовах, тому полив слід здійснювати помірно.',
-			status: 'Новинки',
 			category_en: 'Succulents',
 			name_en: 'Aloe Mix',
 			desc_en:
@@ -1157,7 +1156,6 @@ const plants = {
 				'The plant prefers bright sunlight and needs at least 6 hours of light per day.',
 			humidityLevel_en:
 				'Aloe does not require high humidity and grows better in dry conditions, so watering should be done moderately.',
-			status_en: 'New',
 		},
 		25: {
 			category: 'Сукуленти',
@@ -1181,6 +1179,7 @@ const plants = {
 				'Рослина віддає перевагу яскравому сонячному світлу, тому краще розміщувати її на південному вікні.',
 			humidityLevel:
 				'Красула Овата не потребує високої вологості і краще росте в сухих умовах, тому полив слід здійснювати помірно.',
+			status: 'Новинки',
 			category_en: 'Succulents',
 			name_en: 'Succulent Crassula Ovata',
 			desc_en:
@@ -1195,6 +1194,7 @@ const plants = {
 				'The plant prefers bright sunlight, so it is better to place it on a south-facing window.',
 			humidityLevel_en:
 				'Crassula Ovata does not require high humidity and grows better in dry conditions, so watering should be done moderately.',
+			status_en: 'New',
 		},
 		26: {
 			category: 'Сукуленти',
